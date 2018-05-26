@@ -1,0 +1,118 @@
+import java.io.*;
+
+public class PolyAlphabetic
+{
+    private int ID = 0;
+    private String key = "";
+    private String plainText = "";
+    private String cipher = "";
+
+
+
+    //ciphers.txt Structure: CipherID,plainText,key,cipherText
+    /** 
+     * MAIN CONSTRUCTOR
+     * Creates the polyalphabetic cipher object
+     * @param ID Identifies cipher type
+     * @param key key used to encrypt/decrypt the cipher
+     * @param plainText the plain text that is encrypted
+     * @param cipher the encrypted plaintext
+     */
+    public PolyAlphabetic(int ID,String key,String plainText,String cipher)
+    {
+        this.ID= ID;
+        this.key = key;
+        this.plainText = plainText;
+        this.cipher = cipher;
+    }
+
+    //SETTERS
+    public void setID(int ID)
+    {
+        this.ID = ID;
+    }
+
+    public void setKey(String key)
+    {
+        this.key = key;
+    }
+
+    public void setPlainText(String plainText)
+    {
+        this.plainText = plainText;
+    }
+
+    public void setCipherText(String cipher)
+    {
+        this.cipher = cipher;
+    }
+
+    //GETTERS
+    public int getID()
+    {
+        return ID;
+    }
+
+    public String getKey()
+    {
+        return key;
+    }
+
+    public String getPlainText()
+    {
+        return plainText;
+    }
+
+    public String getCipherText()
+    {
+        return cipher;
+    }
+
+    public int getCipherID()
+    {
+        int ID = 0;
+        return ID;
+    }
+
+    //OTHER METHODS
+    public void encrypt(String plainText,String key)
+    {
+        final String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        char check,letter;
+        String cipher = "";
+        int keyLength = 0,index = 0;
+        plainText = plainText.toLowerCase();
+        for(int i = 0;i< plainText.length();i++){
+            check = plainText.charAt(i);
+            index = alphabet.indexOf(check);
+            if(keyLength >= key.length())
+            {
+                keyLength = 0;
+            }
+            index = index+alphabet.indexOf(key.charAt(keyLength))+1;
+            if(index >= 26)
+            {
+                index = index - 26;
+            }
+            keyLength++;
+            letter = alphabet.charAt(index);
+            cipher += letter;
+        }
+        this.cipher = cipher;
+    }
+
+    public void decrypt()
+    {
+
+    }
+
+    public void save() throws IOException
+    {
+        File cipherFile = new File("ciphers.txt");
+        FileWriter aFileWriter = new FileWriter(cipherFile,true);
+        PrintWriter out = new PrintWriter(aFileWriter);
+        out.println(getID() + "," + getPlainText() + "," + getKey() + "," + getCipherText());
+        out.close();
+        aFileWriter.close();
+    }
+}
