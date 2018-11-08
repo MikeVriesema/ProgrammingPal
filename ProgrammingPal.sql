@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `languages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `languages` (
-  `LanguageID` int(11) NOT NULL AUTO_INCREMENT,
-  `Language` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`LanguageID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `languageID` int(11) NOT NULL AUTO_INCREMENT,
+  `language` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`languageID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,33 +35,66 @@ CREATE TABLE `languages` (
 
 LOCK TABLES `languages` WRITE;
 /*!40000 ALTER TABLE `languages` DISABLE KEYS */;
-INSERT INTO `languages` VALUES (1,'Java'),(2,'C'),(3,'Python');
+INSERT INTO `languages` VALUES (1,'Java'),(2,'C'),(3,'HTML'),(4,'SQL'),(5,'Bash'),(6,'Python');
 /*!40000 ALTER TABLE `languages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `programmer`
+-- Table structure for table `lessons`
 --
 
-DROP TABLE IF EXISTS `programmer`;
+DROP TABLE IF EXISTS `lessons`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `programmer` (
-  `ProgrammerID` int(11) NOT NULL AUTO_INCREMENT,
-  `ProgrammerName` varchar(20) NOT NULL,
-  `LanguageID` int(11) NOT NULL,
-  PRIMARY KEY (`ProgrammerID`,`LanguageID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+CREATE TABLE `lessons` (
+  `lessonID` int(11) NOT NULL AUTO_INCREMENT,
+  `programmerID` int(11) NOT NULL,
+  `languageID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `price` double NOT NULL,
+  PRIMARY KEY (`lessonID`),
+  KEY `programmerID` (`programmerID`),
+  KEY `languageID` (`languageID`),
+  CONSTRAINT `lessons_ibfk_1` FOREIGN KEY (`programmerID`) REFERENCES `programmers` (`programmerID`),
+  CONSTRAINT `lessons_ibfk_2` FOREIGN KEY (`languageID`) REFERENCES `languages` (`languageID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `programmer`
+-- Dumping data for table `lessons`
 --
 
-LOCK TABLES `programmer` WRITE;
-/*!40000 ALTER TABLE `programmer` DISABLE KEYS */;
-INSERT INTO `programmer` VALUES (1,'Luke',1),(2,'Mike',1),(3,'Gearoid',1),(4,'Stack Overflow',1);
-/*!40000 ALTER TABLE `programmer` ENABLE KEYS */;
+LOCK TABLES `lessons` WRITE;
+/*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `programmers`
+--
+
+DROP TABLE IF EXISTS `programmers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `programmers` (
+  `programmerID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `languageID` int(11) NOT NULL,
+  PRIMARY KEY (`programmerID`),
+  KEY `languageID` (`languageID`),
+  CONSTRAINT `programmers_ibfk_1` FOREIGN KEY (`languageID`) REFERENCES `languages` (`languageID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `programmers`
+--
+
+LOCK TABLES `programmers` WRITE;
+/*!40000 ALTER TABLE `programmers` DISABLE KEYS */;
+INSERT INTO `programmers` VALUES (1,'Luke',1),(2,'Ryan',5),(3,'Mitch',1),(4,'Gearoid',1);
+/*!40000 ALTER TABLE `programmers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -73,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-06 16:30:46
+-- Dump completed on 2018-11-08 18:06:54
