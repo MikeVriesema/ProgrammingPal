@@ -41,7 +41,46 @@
 		<p>Nunc ipsum arcu, mollis sit amet nulla in, interdum fringilla lectus. Curabitur laoreet, dui sed dapibus egestas, mauris urna suscipit sem, quis ullamcorper nisi lorem in nisi. Mauris vel lorem luctus, tempus massa eu, vestibulum ipsum. Sed auctor tincidunt libero a consequat. Quisque elementum nec nunc vel malesuada. Nullam tellus lacus, tincidunt sed pulvinar at, pellentesque et sapien. Duis quis urna eget sem congue sodales. Ut suscipit ante vel nulla efficitur, ut viverra erat aliquam. Sed sagittis ultricies dictum. Aliquam nec pretium est, vel interdum libero. Mauris luctus enim et condimentum scelerisque. Nulla fringilla arcu sit amet sem vulputate aliquam.</p>
 		
 		</div>
+			
+	/**
+	DROP DOWN FROM DB IN PHP,NEEDS WORK
+	// Step 1: Connect to DBMS
+	// mysql -u root -p
+	$conn = mysql_connect("localhost", "root", "") or die("Unable to connect to DBMS.");
+
+	// Step 2: Select Database
+	// USE ProgrammingPal;
+	$db = mysql_select_db("ProgrammingPal", $conn) or die("Unable to connect to DB.");
+	
+	
+	// Step 3: Write and run SQL command
+	$sql = "SELECT language FROM languages";
+	$resultLang = mysql_query($sql);
+	
+	
+	// Step 4: Process resulting data
+	
+	echo "<p>See which programming languages we provide assistance with!</p>";
+	echo "<select name=Programming Languages>";
+	if(mysql_num_rows($resultLang) > 0)
+	{
+		while($row = mysql_fetch_array($resultLang))
+		{
+			echo "<option value='" . $row['language'] ."'>" . $row['language'] ."</option>";
+		}
 		
+	} 
+	else 
+	{
+		echo "<h2>No results returned.</h2>";
+	}
+	echo "</select>";
+	$conn->close();
+	?>
+	<?php
+	?>
+	
+	**/
 		
 		
 		<div class = "clear"></div>
