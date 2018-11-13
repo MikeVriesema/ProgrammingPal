@@ -1,5 +1,5 @@
 html{
-	background-color:F4F4F9;
+	background-color:#F4F4F9;
 	font-family: 'Roboto', sans-serif, sans-serif;	
 	
 }
@@ -9,7 +9,7 @@ body{
 	padding:0px;
 	font-size: 1.0em;
 	text-align: center;
-	background-color:F4F4F9;	
+	background-color:#F4F4F9;	
 		
 }
 
@@ -75,7 +75,7 @@ img{
 #header{
 	width:auto;
 	height:auto;
-	background-color: rgb(25, 23, 22);
+	background-color: rgb(26, 28, 31);
 	border:1px rgba(0, 0, 0,.0) solid; 	
 
 		
@@ -96,7 +96,7 @@ h2{
 	text-align: center;
 	text-shadow: 10px 5px rgba(45,45,45,0.2);
 	font-size: 50pt;
-	background-color:  rgb(25, 23, 22);
+	background-color: rgb(26, 28, 31);
 	border-bottom-left-radius: 40px;
 	color: rgb(255, 255, 255);
 		
@@ -111,7 +111,7 @@ h2{
 }
 
 #header h3{
-	text-style: italics;
+	text-style: italic;
 	color: rgb(255, 255, 255);
 		
 }
@@ -121,7 +121,7 @@ nav{
 	justify-content: center;
 	padding:20px;
 	height:100px;
-	background-color:rgb(110, 126, 133);	
+	background-color: rgb(47,54,61);	
 	color: rgb(0, 0, 0);
 	
 }
@@ -168,9 +168,17 @@ nav{
 	
 #content p{
 	
-	margin:80px;
-		
+	margin: 80px;
+    background-color: rgb(136, 136, 136);
+    color: rgb(255, 255, 255);
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
 }
+	
+
 
 #content2 p{
 		
@@ -179,17 +187,15 @@ nav{
 }
 
 ul li{
-	margin:30px;
-	padding:20px;
-	text-decoration:none;
-    color: rgb(0, 0, 0);
-	background-color: #ffffff;
-	box-shadow: 10px 5px rgba(0,0,0,0.2);
-	border-top-left-radius:20px;
-	border-top-right-radius:20px;
-	border-radius: 20px;
-	border-collapse: collapse;
+	margin: 12px;
+    padding: 12px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(47, 54, 61);
+    border-radius: 5px;
+    border-collapse: collapse;
 	list-style-type: none;
+	width: 200px;
 }
 		
 #footer{

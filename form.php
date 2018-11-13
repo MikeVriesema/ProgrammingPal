@@ -21,86 +21,86 @@
 		<nav>
 			<a href = "index.php">Home</a>
 			<a href = "form.php">Register</a>
-			<a href = "#">Lessons</a>
+			<a href = "lessons.php">Lessons</a>
 			<a href = "#">Testimonials</a>
 			<a href = "#">Contact Us</a>
 		</nav>	
 	
 		<div id = "content">
 		
-		<h2>Register Today!</h2>
-		<form method="POST" action ="mailto:17184614@studentmail.ul.ie" id="mainForm">
-		<table id ='formTable'>
-			<tr>
-				<td>		
-					<b><label for="name">Name:</label></b>
-				</td>
-				<td>
-					<input type="text" name="name" id="" tabindex="1" />
-				</td>
-			</tr>
-			
-			<tr>
-				<td>		
-					<b><label for="year">Year:</label></b>
-				</td>	
+			<h2>Register Today!</h2>
+			<form method="POST" action ="mailto:17184614@studentmail.ul.ie" id="mainForm">
+			<table id ='formTable'>
+				<tr>
+					<td>		
+						<b><label for="name">Name:</label></b>
+					</td>
+					<td>
+						<input type="text" name="name" id="" tabindex="1" />
+					</td>
+				</tr>
 				
-				<td>
+				<tr>
+					<td>		
+						<b><label for="year">Year:</label></b>
+					</td>	
 					
-					<!-- CODE I FOUND THAT MIGHT BE USEFUL 
-					<select name="years">
+					<td>
+						
+						<!-- CODE I FOUND THAT MIGHT BE USEFUL 
+						<select name="years">
 
-					<?php 
+						<?php 
 
-					for($i=1; $i<=4; $i++)
-					{
+						for($i=1; $i<=4; $i++)
+						{
 
-						echo "<option value=".$i.">".$i."</option>";
-					}
-					?> 
-						 <option name="years"> </option>   
-					</select> 
-					
-					
-					<input type="submit" name="submitYears" value="Year" />
-					-->
-					
-					<select name="language" id="language" tabindex="3" multiple="multiple">
-							<option value="java">Java</option>
-							<option value="c">C</option>
-							<option value="bash">Bash</option>
-							<option value="php">Php</option>
-					</select>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<b><label for="userType">UserType:</label></b>
-
-				</td>
+							echo "<option value=".$i.">".$i."</option>";
+						}
+						?> 
+							 <option name="years"> </option>   
+						</select> 
+						
+						
+						<input type="submit" name="submitYears" value="Year" />
+						-->
+						
+						<select name="language" id="language" tabindex="3" multiple="multiple">
+								<option value="java">Java</option>
+								<option value="c">C</option>
+								<option value="bash">Bash</option>
+								<option value="php">Php</option>
+						</select>
+					</td>
+				</tr>
 				
-				<td>
-					Student<input type ="radio" name ="userType" id = "userType" tabindex = "4" value = "0"/>
-					<br/>
-					Programmer<input type ="radio" name ="userType" id = "userType" tabindex = "5" value = "1"/>
-				</td>
-			</tr>
+				<tr>
+					<td>
+						<b><label for="userType">UserType:</label></b>
+
+					</td>
+					
+					<td>
+						Student<input type ="radio" name ="userType" id = "userType" tabindex = "4" value = "0"/>
+						<br/>
+						Programmer<input type ="radio" name ="userType" id = "userType" tabindex = "5" value = "1"/>
+					</td>
+				</tr>
 			
-			<td>
-			<br/>
-				<input type ="reset" id ="reset" tabindex ="10" />
-				<input type ="submit" colspan ="2" id ="submit" tabindex ="11"/>
+				<td>
+				<br/>
+					<input type ="reset" id ="reset" tabindex ="10" />
+					<input type ="submit" colspan ="2" id ="submit" tabindex ="11"/>
 				
-			</td>
-		</table>
-	</form>
+				</td>
+			</table>
+		</form>
 
 		
-		</div>
+	</div>
 			
-	/**
-	DROP DOWN FROM DB IN PHP,NEEDS WORK
+	<?php
+	/*DROP DOWN FROM DB IN PHP,NEEDS WORK
 	// Step 1: Connect to DBMS
 	// mysql -u root -p
 	$conn = mysql_connect("localhost", "root", "") or die("Unable to connect to DBMS.");
@@ -132,12 +132,24 @@
 		echo "<h2>No results returned.</h2>";
 	}
 	echo "</select>";
-	$conn->close();
-	?>
-	<?php
+	$conn->close();*/
 	?>
 	
-	**/
+	<div id = "content2">
+		
+		<h2></h2>
+	
+		
+		<p>Sed eget aliquet eros. Morbi condimentum scelerisque pharetra. Mauris id lectus a odio efficitur malesuada. Integer est ex, ultricies sit amet suscipit eget, pulvinar ut leo. Aliquam erat volutpat. Nullam pellentesque fringilla pellentesque. Etiam iaculis felis quis efficitur ultricies. Nunc ac tellus tellus. Cras ultricies nibh elit, convallis euismod turpis pellentesque ac. Donec non nunc dui. Aliquam erat volutpat. Morbi luctus tristique magna, quis bibendum eros ornare sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In id rutrum tortor, vestibulum placerat lectus.</p>
+
+		<p>Nunc ipsum arcu, mollis sit amet nulla in, interdum fringilla lectus. Curabitur laoreet, dui sed dapibus egestas, mauris urna suscipit sem, quis ullamcorper nisi lorem in nisi. Mauris vel lorem luctus, tempus massa eu, vestibulum ipsum. Sed auctor tincidunt libero a consequat. Quisque elementum nec nunc vel malesuada. Nullam tellus lacus, tincidunt sed pulvinar at, pellentesque et sapien. Duis quis urna eget sem congue sodales. Ut suscipit ante vel nulla efficitur, ut viverra erat aliquam. Sed sagittis ultricies dictum. Aliquam nec pretium est, vel interdum libero. Mauris luctus enim et condimentum scelerisque. Nulla fringilla arcu sit amet sem vulputate aliquam.</p>
+	
+		
+	</div>
+	
+
+	
+
 		
 		
 		<div class = "clear"></div>

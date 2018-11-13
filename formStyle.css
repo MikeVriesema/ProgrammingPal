@@ -1,5 +1,5 @@
 html{
-	background-color:F4F4F9;
+	background-color:#F4F4F9;
 	font-family: 'Roboto', sans-serif, sans-serif;	
 	
 }
@@ -9,7 +9,7 @@ body{
 	padding:0px;
 	font-size: 1.0em;
 	text-align: center;
-	background-color:F4F4F9;	
+	background-color:#F4F4F9;	
 		
 }
 
@@ -74,6 +74,44 @@ nav a{
 	
 }
 
+img{
+	
+	width:80%;
+	height:60%;
+	
+}
+		
+#header{
+	width:auto;
+	height:auto;
+	background-color: rgb(26, 28, 31);
+	border:1px rgba(0, 0, 0,.0) solid; 	
+
+		
+}
+		
+h1{
+	padding:20px;
+	text-align: center;
+	text-shadow: 2px 2px #ff0000;
+	font-size: 50pt;
+	color: rgb(255, 255, 255);
+		
+}
+
+h2{
+	padding:30px;
+	margin: 100px;
+	text-align: center;
+	text-shadow: 10px 5px rgba(45,45,45,0.2);
+	font-size: 50pt;
+	background-color: rgb(26, 28, 31);
+	border-bottom-left-radius: 40px;
+	color: rgb(255, 255, 255);
+		
+}
+
+
 #formTable label{
 	
 	padding:10px;
@@ -99,44 +137,6 @@ nav a{
 		
 
 }
-img{
-	
-	width:80%;
-	height:60%;
-	
-}
-		
-#header{
-	width:auto;
-	height:auto;
-	background-color: rgb(25, 23, 22);
-	border:1px rgba(0, 0, 0,.0) solid; 	
-
-		
-}
-		
-h1{
-	padding:20px;
-	text-align: center;
-	text-shadow: 2px 2px #ff0000;
-	font-size: 50pt;
-	color: rgb(255, 255, 255);
-		
-}
-
-h2{
-	padding:30px;
-	margin: 100px;
-	text-align: center;
-	text-shadow: 10px 5px rgba(45,45,45,0.2);
-	font-size: 50pt;
-	background-color:  rgb(25, 23, 22);
-	border-bottom-left-radius: 40px;
-	color: rgb(255, 255, 255);
-		
-}
-
-
 
 #header sub{
 			
@@ -155,7 +155,7 @@ nav{
 	justify-content: center;
 	padding:20px;
 	height:100px;
-	background-color:rgb(110, 126, 133);	
+	background-color: rgb(47,54,61);		
 	color: rgb(0, 0, 0);
 	
 }
