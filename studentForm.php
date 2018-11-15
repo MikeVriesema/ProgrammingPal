@@ -29,7 +29,30 @@
 		<div id = "content">
 		
 			<h2>Student Registration</h2>
-			<form method="POST" action ="mailto:17184614@studentmail.ul.ie" id="mainForm">
+
+			
+
+		<?php
+		if( isset( $_POST['submit'] ) )
+		{
+			$name = $_POST['name'];
+            $email = $_POST['email'];
+			// Step 1: Connect to DBMS
+			// mysql -u root -p
+			$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS.");
+			// Step 2: Write and run SQL command
+			//$sql = "INSERT INTO users(username, email) VALUES('".$_POST["name"]."', '".$_POST["email"]."')";
+			$sql = "INSERT INTO users(username, email) VALUES('$name', '$email')";
+			//mysqli_query($con,"INSERT INTO users(username, email) VALUES('$name', '$email')");
+			if ($conn->query($sql) === TRUE) {
+				echo "New record created successfully";
+			} else {
+				echo "Error: " . $sql . "<br>" . $conn->error;
+			}
+			// Step 3: Process resulting data
+		}else{
+		?>
+		<form action ="studentForm.php" method="POST" id="mainForm">
 			<table id ='formTable'>
 				<tr>
 					<td>	
@@ -37,7 +60,7 @@
 						<b><label for="name">Name:</label></b>
 					</td>
 					<td>
-						<input type="text" name="name" id="" tabindex="1" />
+						<input type="text" name="name" id="name" tabindex="1" />
 					</td>	
 				</tr>
 
@@ -46,60 +69,23 @@
 					<b><label for="email">Email:</label></b>
 					</td>
 					<td>
-						<input type="text" name="email" id="" tabindex="2" />
+						<input type="text" name="email" id="email" tabindex="2" />
 					</td>
 				</tr>
-				
-			
-		
-			
+
 				<td>
 				<br/>
-					<input type ="reset" id ="reset" tabindex ="10" />
-					<input type ="submit" colspan ="2" id ="submit" tabindex ="11"/>
+					<input type ="reset" id ="reset" tabindex ="3" />
+					<input type ="submit" name="submit" colspan ="2" id ="submit" tabindex ="4"/>
 				
 				</td>
 			</table>
-		</form>
-
-		
+			</form>
+			<?php
+				}
+			?>
 	</div>
-			
-	<?php
-	/*DROP DOWN FROM DB IN PHP,NEEDS WORK
-	// Step 1: Connect to DBMS
-	// mysql -u root -p
-	$conn = mysql_connect("localhost", "root", "") or die("Unable to connect to DBMS.");
 
-	// Step 2: Select Database
-	// USE ProgrammingPal;
-	$db = mysql_select_db("ProgrammingPal", $conn) or die("Unable to connect to DB.");
-	
-	
-	// Step 3: Write and run SQL command
-	$sql = "SELECT language FROM languages";
-	$resultLang = mysql_query($sql);
-	
-	
-	// Step 4: Process resulting data
-	
-	echo "<p>See which programming languages we provide assistance with!</p>";
-	echo "<select name=Programming Languages>";
-	if(mysql_num_rows($resultLang) > 0)
-	{
-		while($row = mysql_fetch_array($resultLang))
-		{
-			echo "<option value='" . $row['language'] ."'>" . $row['language'] ."</option>";
-		}
-		
-	} 
-	else 
-	{
-		echo "<h2>No results returned.</h2>";
-	}
-	echo "</select>";
-	$conn->close();*/
-	?>
 	
 	<div id = "content2">
 		
@@ -141,4 +127,3 @@
 		</body>	
 	</div>
 </html>
-

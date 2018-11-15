@@ -100,40 +100,25 @@
 		
 	</div>
 			
+			
 	<?php
-	/*DROP DOWN FROM DB IN PHP,NEEDS WORK
 	// Step 1: Connect to DBMS
-	// mysql -u root -p
-	$conn = mysql_connect("localhost", "root", "") or die("Unable to connect to DBMS.");
-
-	// Step 2: Select Database
-	// USE ProgrammingPal;
-	$db = mysql_select_db("ProgrammingPal", $conn) or die("Unable to connect to DB.");
-	
-	
-	// Step 3: Write and run SQL command
+	$conn = mysqli_connect("localhost", "root", "","ProgrammingPal") or die("Unable to connect to DBMS.");
+	// Step 2: Write and run SQL command
 	$sql = "SELECT language FROM languages";
-	$resultLang = mysql_query($sql);
-	
-	
-	// Step 4: Process resulting data
-	
+			$resultLang = $conn->query($sql);
+	// Step 3: Process resulting data
 	echo "<p>See which programming languages we provide assistance with!</p>";
 	echo "<select name=Programming Languages>";
-	if(mysql_num_rows($resultLang) > 0)
-	{
-		while($row = mysql_fetch_array($resultLang))
-		{
+	if($resultLang->num_rows > 0){
+		while($row = $resultLang->fetch_assoc()){
 			echo "<option value='" . $row['language'] ."'>" . $row['language'] ."</option>";
 		}
-		
-	} 
-	else 
-	{
+	} else {
 		echo "<h2>No results returned.</h2>";
 	}
 	echo "</select>";
-	$conn->close();*/
+	$conn->close();
 	?>
 	
 	<div id = "content2">
