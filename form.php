@@ -20,29 +20,39 @@
 		
 		<nav>
 			<a href = "index.php">Home</a>
-			<a href = "form.php">Register</a>
+			<a href = "form.php">Programmers</a>
 			<a href = "lessons.php">Lessons</a>
-			<a href = "#">Testimonials</a>
+			<a href = "studentForm.php">Students</a>
 			<a href = "#">Contact Us</a>
 		</nav>	
-	
+
 		<div id = "content">
 		
-			<h2>Register Today!</h2>
+			<h2>Programmer Registration!</h2>
 			<form method="POST" action ="mailto:17184614@studentmail.ul.ie" id="mainForm">
 			<table id ='formTable'>
 				<tr>
-					<td>		
+					<td>	
+							
 						<b><label for="name">Name:</label></b>
 					</td>
 					<td>
 						<input type="text" name="name" id="" tabindex="1" />
+					</td>	
+				</tr>
+
+				<tr>
+				<td>		
+					<b><label for="email">Email:</label></b>
+					</td>
+					<td>
+						<input type="text" name="email" id="" tabindex="2" />
 					</td>
 				</tr>
 				
 				<tr>
 					<td>		
-						<b><label for="year">Year:</label></b>
+						<b><label for="language">Languages:</label></b>
 					</td>	
 					
 					<td>
@@ -64,28 +74,19 @@
 						
 						<input type="submit" name="submitYears" value="Year" />
 						-->
-						
-						<select name="language" id="language" tabindex="3" multiple="multiple">
-								<option value="java">Java</option>
-								<option value="c">C</option>
-								<option value="bash">Bash</option>
-								<option value="php">Php</option>
-						</select>
+						<br/>
+						<input type="checkbox" name="java" value="java"> Java
+						<br/>
+						<input type="checkbox" name="c" value="c"> C
+						<br/>
+						<input type="checkbox" name="bash" value="bash"> Bash
+						<br/>
+						<input type="checkbox" name="php" value="php"> Php
+						<br/>
 					</td>
 				</tr>
 				
-				<tr>
-					<td>
-						<b><label for="userType">UserType:</label></b>
-
-					</td>
-					
-					<td>
-						Student<input type ="radio" name ="userType" id = "userType" tabindex = "4" value = "0"/>
-						<br/>
-						Programmer<input type ="radio" name ="userType" id = "userType" tabindex = "5" value = "1"/>
-					</td>
-				</tr>
+		
 			
 				<td>
 				<br/>
@@ -158,6 +159,17 @@
 			<p>123 UL Street,</p>
 			<p>Co. Limerick</p>
 			<a href="mailto:programming4life@programmingpal.com" target="_top">Send us an email!</a>
+			
+			<br/>
+			<br/>
+			<a href = "index.php">| Home |</a>
+			
+			<a href = "form.php">| Register |</a>
+			
+			<a href = "lessons.php">| Lessons |</a>
+		
+			<a href = "#">| Testimonials |</a>
+			<a href = "#">| Contact Us |</a>
 		</div>
 
 			

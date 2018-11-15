@@ -39,7 +39,7 @@ nav a{
 	text-decoration:none;
 	text-shadow: 2px 4px rgb(227, 232, 237);
     color: rgb(0, 0, 0);
-	background-color: #ffffff;
+	background-color: rgb(255, 255, 255);
 	box-shadow: 10px 5px rgba(0,0,0,0.2);
 	border-bottom-left-radius: 30px;
 	border-collapse: collapse;
@@ -51,7 +51,7 @@ nav a{
 	
 	text-decoration:none;
     color: rgb(0, 0, 0);
-	background-color: #ffffff;
+	background-color: rgb(255, 255, 255);
 	border-top-left-radius:5px;
 	border-top-right-radius:5px;
 	border-radius: 5px;
@@ -84,7 +84,7 @@ img{
 h1{
 	padding:20px;
 	text-align: center;
-	text-shadow: 2px 2px #ff0000;
+	text-shadow: 2px 2px rgb(158, 8, 8);
 	font-size: 50pt;
 	color: rgb(255, 255, 255);
 		

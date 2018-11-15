@@ -20,73 +20,69 @@
 		
 		<nav>
 			<a href = "index.php">Home</a>
-			<a href = "form.php">Register</a>
+			<a href = "form.php">Programmers</a>
 			<a href = "lessons.php">Lessons</a>
-			<a href = "#">Testimonials</a>
+			<a href = "studentForm.php">Students</a>
 			<a href = "#">Contact Us</a>
 		</nav>	
 	
 		<div id = "content">
 		
-		<h2>Why Choose Us?</h2>
-		<p><b>Fast and efficient:</b>
-		<br/>
-		<br/>
-		We ensure all programmers respond within <b>72 hours</b> to help you with all your programming needs!</p>
-
-		<p><b>Quality Code:</b>
-		<br/>
-		<br/>
-		Our code is <b>guaranteed</b> to compile...most of the time anyway.</p>
-
-
-		<p><b>Affordable:</b>
-		<br/>
-		<br/>
-		We take pride that our service is affordable </p>
-
-		<p><b>Mental Sanity:</b>
-		<br/>
-		<br/>
-		We all know the pain of getting the dreaded "Segmentation Fault (Core Dumped)" or the classic "java.lang.NullPointerException". Don't worry we're here to help and make sure your coding experience is as smooth as possible.</p>
-
-		<p>We cover various languages such as:<br/> <b>Java, <br/>C,<br/> PHP,<br/>HTML/CSS</b></p>
-
-		</div>
-		
-		<div id = "content2">
-		
-		<h2>Meet The Team</h2>
-		<img src="images/code.jpg" title="Code" width="780" height="400"  alt="Code"></img>
-
-		
-		<p><b>Gearoid Kirwan: (Chief Executive Officer) </b></p>
-
-		<p>"What started as a side project as grown into something I couldn't have imagined. From living in Adare to the high rise of San Fransico"</p>
-	
-		
-		</div>
-		
-		<div class = "clear"></div>
-		<div id = "footer">
-			<p>Programming Pal,</p>
-			<p>123 UL Street,</p>
-			<p>Co. Limerick</p>
-			<a href="mailto:programming4life@programmingpal.com" target="_top">Send us an email!</a>
-			
+			<h2>Why Choose Us?</h2>
+			<p><b>Fast and efficient:</b>
 			<br/>
 			<br/>
-			<a href = "index.php">| Home |</a>
+			We ensure all programmers respond within <b>72 hours</b> to help you with all your programming needs!</p>
+
+			<p><b>Quality Code:</b>
+			<br/>
+			<br/>
+			Our code is <b>guaranteed</b> to compile...most of the time anyway.</p>
+
+
+			<p><b>Affordable:</b>
+			<br/>
+			<br/>
+			We take pride that our service is affordable </p>
+
+			<p><b>Mental Sanity:</b>
+			<br/>
+			<br/>
+			We all know the pain of getting the dreaded "Segmentation Fault (Core Dumped)" or the classic "java.lang.NullPointerException". Don't worry we're here to help and make sure your coding experience is as smooth as possible.</p>
+
+			<p>We cover various languages such as:<br/> <b>Java, <br/>C,<br/> PHP,<br/>HTML/CSS</b></p>
+
+			</div>
 			
-			<a href = "form.php">| Register |</a>
+			<div id = "content2">
 			
-			<a href = "#">| Lessons |</a>
-		
-			<a href = "#">| Testimonials |</a>
-			<a href = "#">| Contact Us |</a>
-		</div>
+			<h2>Meet The Team</h2>
+			<img src="images/code.jpg" title="Code" width="780" height="400"  alt="Code"></img>
 
 			
+			<p><b>Gearoid Kirwan: (Chief Executive Officer) </b></p>
+
+			<p>"What started as a side project as grown into something I couldn't have imagined. From living in Adare to the high rise of San Fransico"</p>
+		
+			
+			</div>
+		
+			<div class = "clear"></div>
+			<div id = "footer">
+				<p>Programming Pal,</p>
+				<p>123 UL Street,</p>
+				<p>Co. Limerick</p>
+				<a href="mailto:programming4life@programmingpal.com" target="_top">Send us an email!</a>
+				
+				<br/>
+				<br/>
+				<a href = "index.php">| Home |</a>
+				<a href = "form.php">| Programmers |</a>
+				<a href = "lessons.php">| Lessons |</a>
+				<a href = "studentForm.php">| Students |</a>
+				<a href = "#">| Contact Us |</a>
+			</div>
+
 		</body>	
 	</div>
 </html>
