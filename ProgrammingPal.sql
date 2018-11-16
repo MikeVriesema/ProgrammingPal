@@ -60,7 +60,7 @@ CREATE TABLE `lessons` (
   CONSTRAINT `lessons_ibfk_1` FOREIGN KEY (`programmerID`) REFERENCES `programmers` (`programmerID`),
   CONSTRAINT `lessons_ibfk_2` FOREIGN KEY (`languageID`) REFERENCES `languages` (`languageID`),
   CONSTRAINT `lessons_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +69,7 @@ CREATE TABLE `lessons` (
 
 LOCK TABLES `lessons` WRITE;
 /*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
+INSERT INTO `lessons` VALUES (1,1,1,3,'0000-00-00 00:00:00',10),(2,2,4,4,'0000-00-00 00:00:00',10),(3,2,5,3,'0000-00-00 00:00:00',10);
 /*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-15 16:31:25
+-- Dump completed on 2018-11-16  1:40:02
