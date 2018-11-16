@@ -132,6 +132,73 @@ h2{
 
 }
 
+table#returnedForm {
+	padding:100px;
+	text-align: center;
+	font-size: 12pt;
+	background-color:rgb(239, 239, 239);
+	border-radius: 100px;
+
+}
+
+#returnedFormDiv{
+
+
+	padding:100px;
+	text-align: center;
+	font-size: 12pt;
+	background-color:rgb(47,54,61);	
+	border-radius: 100px;
+}
+
+p#returnedForm {
+	padding:100px;
+	text-align: center;
+	font-size: 12pt;
+	background-color:rgb(47,54,61);	
+	border-radius: 100px; 
+}
+
+
+table#userLessonForm {
+	padding:100px;
+	text-align: center;
+	font-size: 12pt;
+	background-color:rgb(239, 239, 239);
+	border-radius: 100px;
+
+}
+
+#returnedFormDiv{
+
+
+	padding:100px;
+	text-align: center;
+	font-size: 12pt;
+	background-color:rgb(47,54,61);	
+	border-radius: 100px;
+}
+
+p#returnedForm {
+	padding:100px;
+	text-align: center;
+	font-size: 12pt;
+	background-color:rgb(47,54,61);	
+	border-radius: 100px; 
+}
+#userLessonForm table {
+
+	padding:100px;
+	text-align: center;
+	font-size: 12pt;
+	background-color:rgb(47,54,61);	
+	border-radius: 100px;
+}
+	
+
+
+}
+
 #formTable #reset, #submit{
 	
 	padding:20px;

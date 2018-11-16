@@ -16,6 +16,7 @@
 		<div id = "header">
 			<h1>Programming Pal 
 			<sub>(Destroying our souls so you don't have to)</sub></h1>	
+	
 		</div>
 		
 		<nav>
