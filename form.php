@@ -28,8 +28,15 @@
 
 		<div id = "content">
 		
-			<h2>Programmer Registration!</h2>
-			<form method="POST" action ="mailto:17184614@studentmail.ul.ie" id="mainForm">
+		<h2>Programmer Registration!</h2>
+		<?php
+		if( isset( $_POST['submit'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
+			$progName = $_POST['name'];
+			$progEmail = $_POST['email'];
+			$progLangs = $_POST['email']; 
+		}else{
+		?>
+			<form method="POST" action ="form.php" id="mainForm">
 			<table id ='formTable'>
 				<tr>
 					<td>	
@@ -49,40 +56,34 @@
 						<input type="text" name="email" id="" tabindex="2" />
 					</td>
 				</tr>
-				
 				<tr>
-					<td>		
-						<b><label for="language">Languages:</label></b>
-					</td>	
-					
 					<td>
-						
-						<!-- CODE I FOUND THAT MIGHT BE USEFUL 
-						<select name="years">
-
-						<?php 
-
-						for($i=1; $i<=4; $i++)
-						{
-
-							echo "<option value=".$i.">".$i."</option>";
-						}
-						?> 
-							 <option name="years"> </option>   
-						</select> 
-						
-						
-						<input type="submit" name="submitYears" value="Year" />
-						-->
+						<b>Select a Language:</b>
 						<br/>
-						<input type="checkbox" name="java" value="java"> Java
-						<br/>
-						<input type="checkbox" name="c" value="c"> C
-						<br/>
-						<input type="checkbox" name="bash" value="bash"> Bash
-						<br/>
-						<input type="checkbox" name="php" value="php"> Php
-						<br/>
+							<?php
+							//DROP DOWN FROM DB IN PHP,NEEDS WORK
+							// Step 1: Connect to DBMS
+							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
+							// Step 2: Write and run SQL command
+							$sql2 = "SELECT language FROM languages"; 
+									$resultLangList = $conn->query($sql2); 
+							// Step 4: Process resulting data
+							
+							echo "<select name=language>"; //YES I WILL CONVERT THIS TO MULTI SELECTION RADIO BUTTONS AND FEED IN A LIST OF LANGUAGES JUST LEAVE IT LIKE THIS FOR NOW xx
+							if($resultLangList->num_rows > 0)
+							{
+								while($row = $resultLangList->fetch_assoc())
+								{
+									echo "<option id='language' value='" . $row['language'] ."'>" . $row['language'] ."</option>";
+								}
+							} 
+							else 
+							{
+								echo "<h2>No results returned.</h2>";
+							}
+							echo "</select>";
+							$conn->close();
+							?>
 					</td>
 				</tr>
 				
@@ -91,50 +92,18 @@
 				<td>
 				<br/>
 					<input type ="reset" id ="reset" tabindex ="10" />
-					<input type ="submit" colspan ="2" id ="submit" tabindex ="11"/>
+					<input type ="submit" name = "submit" colspan ="2" id ="submit" tabindex ="11"/>
 				
 				</td>
 			</table>
 		</form>
-
+		<?php
+			}
+		?>					
 		
 	</div>
 			
-	<?php
-	/*DROP DOWN FROM DB IN PHP,NEEDS WORK
-	// Step 1: Connect to DBMS
-	// mysql -u root -p
-	$conn = mysql_connect("localhost", "root", "") or die("Unable to connect to DBMS.");
-
-	// Step 2: Select Database
-	// USE ProgrammingPal;
-	$db = mysql_select_db("ProgrammingPal", $conn) or die("Unable to connect to DB.");
 	
-	
-	// Step 3: Write and run SQL command
-	$sql = "SELECT language FROM languages";
-	$resultLang = mysql_query($sql);
-	
-	
-	// Step 4: Process resulting data
-	
-	echo "<p>See which programming languages we provide assistance with!</p>";
-	echo "<select name=Programming Languages>";
-	if(mysql_num_rows($resultLang) > 0)
-	{
-		while($row = mysql_fetch_array($resultLang))
-		{
-			echo "<option value='" . $row['language'] ."'>" . $row['language'] ."</option>";
-		}
-		
-	} 
-	else 
-	{
-		echo "<h2>No results returned.</h2>";
-	}
-	echo "</select>";
-	$conn->close();*/
-	?>
 	
 	<div id = "content2">
 		
