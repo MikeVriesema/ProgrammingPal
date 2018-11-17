@@ -28,7 +28,7 @@
 	
 		<div id = "content">
 		
-		<h2>Lessons</h2>
+		<h2>My Lessons</h2>
 		
 		
 		
@@ -64,6 +64,8 @@
 					}
 					// Step 3: Process resulting data
 					if($resultLessons->num_rows > 0){
+						echo '<div id = returnedFormDiv>';
+						echo '<table id="returnedForm">';
 						echo "<table>";
 						echo "Lesson Bookings: $userEmail";
 						echo "<tr><th>LessonID</th><th>Programmer</th><th>Language</th><th>UserEmail</th><th>Time</th><th>Date</th><th>Price</th></tr>";
@@ -96,6 +98,8 @@
 					}
 					$conn->close();
 					break;
+
+					echo '</div>';
 				}while(0);
 			}else{
 		?>
@@ -124,7 +128,18 @@
 			}
 		?>
 	</div>
-	<!-- 
+	
+	<!--
+		=========================================================================================================================================================================================
+		-->
+
+		</div>
+
+		<div id = "content2">
+		
+		<h2>Book A Lesson</h2>
+
+		<!-- 
 		===========================================================================================================================
 		LESSON BOOKING FORM + PHP +SQL(NEEDS WORK BIG WIP)
 		-->
@@ -239,15 +254,6 @@
 			}
 		?>
 	</div>
-	<!--
-		=========================================================================================================================================================================================
-		-->
-
-		</div>
-
-		<div id = "content2">
-		
-		<h2>Lessons</h2>
 		
 		</div>
 		
