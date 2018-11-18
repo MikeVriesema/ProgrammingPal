@@ -57,16 +57,21 @@
 			
 			<div id = "content2">
 			
-			<h2>Meet The Team</h2>
-			<img src="images/code.jpg" title="Code" width="780" height="400"  alt="Code"></img>
-
+				<h2>Meet The Team</h2>
+			<div id = "meetTheTeam">
+				
 			
-			<p><b>Gearoid Kirwan: (Chief Executive Officer) </b></p>
-
-			<p>"What started as a side project as grown into something I couldn't have imagined. From living in Adare to the high rise of San Fransico"</p>
-		
-			
+				<img src="images/gearoid.jpg" title="Code"  alt="Code"></img>
 			</div>
+
+			<div id = "meetTheTeamText">
+				<h3><b>Gearoid Kirwan: (Chief Executive Officer) </b></h3>
+
+				<p>"What started as a side project has grown into something I couldn't have imagined. From living in Adare to the high rise of San Francisco I am humbled to be working with some of the best developers in the world"</p>
+			</div>	
+		</div>
+			
+		
 		
 			<div class = "clear"></div>
 			<div id = "footer">
