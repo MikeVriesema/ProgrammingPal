@@ -33,24 +33,18 @@
 			
 
 		<?php
-		if( isset( $_POST['submit'] ) )
-		{
-			$name = $_POST['name'];
-            $email = $_POST['email'];
-			// Step 1: Connect to DBMS
-			// mysql -u root -p
-			$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS.");
-			// Step 2: Write and run SQL command
-			//$sql = "INSERT INTO users(username, email) VALUES('".$_POST["name"]."', '".$_POST["email"]."')";
-			$sql = "INSERT INTO users(username, email) VALUES('$name', '$email')";
-			//mysqli_query($con,"INSERT INTO users(username, email) VALUES('$name', '$email')");
-			if ($conn->query($sql) === TRUE) {
-				echo "New record created successfully";
-			} else {
-				echo "Error: " . $sql . "<br>" . $conn->error;
-			}
-			// Step 3: Process resulting data
-		}else{
+			if( isset( $_POST['submit'] )){
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS.");
+				$sql = "INSERT INTO users(username, email) VALUES('$name', '$email')";
+				if ($conn->query($sql) === TRUE) {
+					echo "User registered!";
+				} else {
+					echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+				$conn->close();
+			}else{
 		?>
 		<form action ="studentForm.php" method="POST" id="mainForm">
 			<table id ='formTable'>

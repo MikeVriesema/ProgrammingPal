@@ -54,71 +54,70 @@
 						<b>Select a Language:</b>
 						<br/>
 							<?php
-							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
-							$sqlLangFetch = "SELECT * FROM languages"; 
-								$resultLangList = $conn->query($sqlLangFetch); 
-							$buttonCount = 1;
-							if($resultLangList->num_rows > 0)
-							{
-								while($row = $resultLangList->fetch_assoc())
-								{
-									echo "<input multiple type='checkbox' name='" . $row['languageID'] ."' value='" . $row['language'] ."'>" . $row['language'] ."<br>";
-									$buttonCount++;
-								}
-							} 
-							else 
-							{
-								echo "<h2>No results returned.</h2>";
-							}
-							if( isset( $_POST['submit'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
-								$progName = $_POST['name'];
-								$progEmail = $_POST['email'];
-								$langs=array();
-								for($i = 1; $i < $buttonCount; $i++){
-									if(!empty($_POST[$i])){
-										$langs[$i] = $_POST[$i];
-										echo "<br/>$langs[$i]";
+								//DO A NULL ENTRY CHECK ON ALL FORMS
+								$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
+								$sqlLangFetch = "SELECT * FROM languages"; 
+									$resultLangList = $conn->query($sqlLangFetch); 
+								$buttonCount = 1;
+								if($resultLangList->num_rows > 0){
+									while($row = $resultLangList->fetch_assoc()){
+										echo "<input multiple type='checkbox' name='" . $row['languageID'] ."' value='" . $row['language'] ."'>" . $row['language'] ."<br>";
+										$buttonCount++;
 									}
-								}
-								$registerProg = "INSERT INTO programmers(username, email) VALUES('$progName', '$progEmail')";
-								if ($conn->query($registerProg) === TRUE) {
-									echo "New record created successfully";
 								} else {
-									echo "Error: " . $registerProg . "<br>" . $conn->error;
+									echo "<h2>No results returned.</h2>";
 								}
-								$sqlProgIDFetch = "SELECT programmerID FROM programmers WHERE email = '$progEmail'"; 
-									$resultProgID = $conn->query($sqlProgIDFetch); 
-								while($row = $resultProgID->fetch_assoc()){
-									$progID = $row["programmerID"];
+								if( isset( $_POST['submit'] ) ){
+									if($_POST['name'] != "" && $_POST['email'] != "" ){
+										$progName = $_POST['name'];
+										$progEmail = $_POST['email'];
+										$langs=array();
+										$langID=array();
+										$progData=array();
+										$counter = 0 ;
+										for($i = 1; $i < $buttonCount; $i++){
+											if(!empty($_POST[$i])){
+												$langs[$counter] = $_POST[$i];
+												$langID[$counter] = $i;
+												$counter++;
+											}
+										}
+										$registerProg = "INSERT INTO programmers(name, email) VALUES('$progName', '$progEmail')";
+										if ($conn->query($registerProg) === TRUE) {
+											echo "<br/>Programmer Registered!<br/>";
+											$sqlProgIDFetch = "SELECT programmerID FROM programmers WHERE email = '$progEmail'"; 
+											$resultProgID = $conn->query($sqlProgIDFetch); 
+											while($row = $resultProgID->fetch_assoc()){
+												$progID = $row["programmerID"];
+											}						
+											for($i = 0;$i<sizeof($langs);$i++) {
+												$progData[] = '("'.$progID.'", "'.$langID[$i].'")';
+											}
+											$registerSkill = 'INSERT INTO skills(programmerID, languageID)  VALUES'.implode(',',$progData);
+											if ($conn->query($registerSkill) === TRUE) {
+												echo "Language set entered.";
+											} else {
+												echo "Error: " . $registerSkill . "<br>" . $conn->error;
+											}
+										} else {
+											echo "Error: " . $registerProg . "<br>" . $conn->error;
+										}
+									} else {
+										echo "Please enter a valid name and email.";
+									}
+								
 								}
-								$sqlLangIDFetch = "SELECT languageID FROM languages WHERE language = '$langs[$i]'"; //NOT DONE
-									$resultProgID = $conn->query($sqlLangIDFetch); 									//NOT DONE
-								while($row = $resultProgID->fetch_assoc()){											//NOT DONE
-									$langID = $row["languageID"];													//NOT DONE
-								}																					//NOT DONE
-								$registerProg = "INSERT INTO skills(programmerID, languageID) VALUES('$progID', '$langID')";
-								if ($conn->query($registerProg) === TRUE) {
-									echo "New record created successfully";
-								} else {
-									echo "Error: " . $registerProg . "<br>" . $conn->error;
-								}
-							} 
-							$conn->close();
+								$conn->close();
 							?>
 					</td>
 				</tr>
-				
 				<td>
 				<br/>
-					<input type ="reset" id ="reset" tabindex ="10" />
-					<input type ="submit" name = "submit" colspan ="2" id ="submit" tabindex ="11"/>
+					<input type ="reset" id ="reset" tabindex ="3" />
+					<input type ="submit" name = "submit" colspan ="2" id ="submit" tabindex ="4"/>
 				</td>
 			</table>
 		</form>				
-		
-		<?php
-		
-		?>
 	</div>	
 			
 	
@@ -135,11 +134,6 @@
 		
 	</div>
 	
-
-	
-
-		
-		
 		<div class = "clear"></div>
 		<div id = "footer">
 			<p>Programming Pal,</p>
