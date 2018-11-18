@@ -29,13 +29,6 @@
 		<div id = "content">
 		
 		<h2>Programmer Registration!</h2>
-		<?php
-		if( isset( $_POST['submit'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
-			$progName = $_POST['name'];
-			$progEmail = $_POST['email'];
-			$progLangs = $_POST['email']; 
-		}else{
-		?>
 			<form method="POST" action ="form.php" id="mainForm">
 			<table id ='formTable'>
 				<tr>
@@ -61,47 +54,72 @@
 						<b>Select a Language:</b>
 						<br/>
 							<?php
-							//DROP DOWN FROM DB IN PHP,NEEDS WORK
-							// Step 1: Connect to DBMS
 							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
-							// Step 2: Write and run SQL command
-							$sql2 = "SELECT language FROM languages"; 
-									$resultLangList = $conn->query($sql2); 
-							// Step 4: Process resulting data
-							
-							echo "<select name=language>"; //YES I WILL CONVERT THIS TO MULTI SELECTION RADIO BUTTONS AND FEED IN A LIST OF LANGUAGES JUST LEAVE IT LIKE THIS FOR NOW xx
+							$sqlLangFetch = "SELECT * FROM languages"; 
+								$resultLangList = $conn->query($sqlLangFetch); 
+							$buttonCount = 1;
 							if($resultLangList->num_rows > 0)
 							{
 								while($row = $resultLangList->fetch_assoc())
 								{
-									echo "<option id='language' value='" . $row['language'] ."'>" . $row['language'] ."</option>";
+									echo "<input multiple type='checkbox' name='" . $row['languageID'] ."' value='" . $row['language'] ."'>" . $row['language'] ."<br>";
+									$buttonCount++;
 								}
 							} 
 							else 
 							{
 								echo "<h2>No results returned.</h2>";
 							}
-							echo "</select>";
+							if( isset( $_POST['submit'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
+								$progName = $_POST['name'];
+								$progEmail = $_POST['email'];
+								$langs=array();
+								for($i = 1; $i < $buttonCount; $i++){
+									if(!empty($_POST[$i])){
+										$langs[$i] = $_POST[$i];
+										echo "<br/>$langs[$i]";
+									}
+								}
+								$registerProg = "INSERT INTO programmers(username, email) VALUES('$progName', '$progEmail')";
+								if ($conn->query($registerProg) === TRUE) {
+									echo "New record created successfully";
+								} else {
+									echo "Error: " . $registerProg . "<br>" . $conn->error;
+								}
+								$sqlProgIDFetch = "SELECT programmerID FROM programmers WHERE email = '$progEmail'"; 
+									$resultProgID = $conn->query($sqlProgIDFetch); 
+								while($row = $resultProgID->fetch_assoc()){
+									$progID = $row["programmerID"];
+								}
+								$sqlLangIDFetch = "SELECT languageID FROM languages WHERE language = '$langs[$i]'"; //NOT DONE
+									$resultProgID = $conn->query($sqlLangIDFetch); 									//NOT DONE
+								while($row = $resultProgID->fetch_assoc()){											//NOT DONE
+									$langID = $row["languageID"];													//NOT DONE
+								}																					//NOT DONE
+								$registerProg = "INSERT INTO skills(programmerID, languageID) VALUES('$progID', '$langID')";
+								if ($conn->query($registerProg) === TRUE) {
+									echo "New record created successfully";
+								} else {
+									echo "Error: " . $registerProg . "<br>" . $conn->error;
+								}
+							} 
 							$conn->close();
 							?>
 					</td>
 				</tr>
 				
-		
-			
 				<td>
 				<br/>
 					<input type ="reset" id ="reset" tabindex ="10" />
 					<input type ="submit" name = "submit" colspan ="2" id ="submit" tabindex ="11"/>
-				
 				</td>
 			</table>
-		</form>
-		<?php
-			}
-		?>					
+		</form>				
 		
-	</div>
+		<?php
+		
+		?>
+	</div>	
 			
 	
 	
