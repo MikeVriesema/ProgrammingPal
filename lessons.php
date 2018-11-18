@@ -144,51 +144,8 @@
 		LESSON BOOKING FORM + PHP +SQL(NEEDS WORK BIG WIP)
 		-->
 		<div id = "lessonFormBook">
-		<?php
-			if( isset( $_POST['language'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
-				$bookEmail = $_POST['userEmail']; 
-				$bookLang = $_POST['language'];
-				//$bookDate = $_POST['date'];
-				//$bookTime = $_POST['time'];
-				// Step 1: Connect to DBMS
-				$conn = mysqli_connect("localhost", "root", "","ProgrammingPal") or die("Unable to connect to DBMS."); 
-				// Step 2: Write and run SQL command
-				$sqlMailCheck = "SELECT email FROM users WHERE email = '$bookEmail'"; //REGISTERED EMAIL CHECK YEET
-						$resultEmail = $conn->query($sqlMailCheck); 
-				if($resultEmail->num_rows > 0){
-					$sqlProgrammerFetch = "SELECT name FROM programmers WHERE programmerID IN(SELECT programmerID FROM skills WHERE languageID IN(SELECT languageID FROM languages where language = '$bookLang'));"; 
-							$resultProgrammerFetch = $conn->query($sqlProgrammerFetch); 
-					// Step 4: Process resulting data
-					echo "Select a programmer for the lesson in the language:$bookLang";
-					echo "<select name=programmer>";
-					if($resultProgrammerFetch->num_rows > 0)
-					{
-						while($row = $resultProgrammerFetch->fetch_assoc())
-						{
-							echo "<option id='programmer' value='" . $row['name'] ."'>" . $row['name'] ."</option>";
-						}
-					}else{
-						echo "Jeff";
-					} 
-				}else{
-					echo "No matching registered email found";
-				}
-					echo "</table>";	
-				$conn->close();
-			}else{
-		?>
 		<form action ="lessons.php" method="POST" id="userLessonBook">
 			<table id ='bookForm'>
-				<tr>
-					<td>	
-						<b><label for="userEmail">Enter user email:</label></b> <!-- USE 3 TO TEST MUST CHECK FOR VALID EMAIL-->
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="text" name="userEmail" id="userEmail" tabindex="1" />
-					</td>	
-				</tr>
 				<tr>
 					<td> <!-- JQUERY EVENT LISTENER FOR BUTTON PRESS WILL SOMEHOW REVEAL PROGRAMMERS FOR SELECTED LANGUAGE,WILL FIGURE OUT -->
 						<b>Select a Language:</b>
@@ -203,27 +160,78 @@
 							// Step 4: Process resulting data
 							
 							echo "<select name=language>";
-							if($resultLangList->num_rows > 0)
+							while($row = $resultLangList->fetch_assoc())
 							{
-								while($row = $resultLangList->fetch_assoc())
-								{
-									echo "<option id='language' value='" . $row['language'] ."'>" . $row['language'] ."</option>";
-								}
-							} 
-							else 
-							{
-								echo "<h2>No results returned.</h2>";
+								echo "<option id='language' value='" . $row['language'] ."'>" . $row['language'] ."</option>";
 							}
 							echo "</select>";
 							$conn->close();
 							?>
+						<br/>
+						<br/>
+						<input type ="submit" name="checkLang" colspan ="2" id ="checkLang" value="Search Language" tabindex ="5"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<?php
+						if( isset( $_POST['checkLang'] ) ){
+							$bookLang = $_POST['language']; 
+							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
+							$sqlProgrammerFetch = "SELECT name FROM programmers WHERE programmerID IN(SELECT programmerID FROM skills WHERE languageID IN(SELECT languageID FROM languages where language = '$bookLang'));"; 
+										$resultProgrammerFetch = $conn->query($sqlProgrammerFetch); 
+								echo "Select a programmer for the lesson in the language:<br/>$bookLang<br/>";
+								echo "<select name=programmer>";
+								while($row = $resultProgrammerFetch->fetch_assoc())
+								{
+									echo "<option id='programmer' value='" . $row['name'] ."'>" . $row['name'] ."</option>";
+								}
+								echo "</select>";	
+							$conn->close();
+						}
+						?>
+					</td>
+				</tr>
+				<tr>
+					<td>	
+						<b><label for="userEmail">Enter user email:</label></b>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="userEmail" id="userEmail" tabindex="1" />
+					</td>	
+				</tr>
+				<tr>
+					<td>	
+						<br/>
+						<br/>
+						<input type ="submit" name="checkMail" colspan ="2" id ="checkMail" value="Continue" tabindex ="6"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<?php
+							if( isset( $_POST['checkMail'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
+								$checkMail = $_POST['checkMail'];
+								$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
+								$sqlMailCheck = "SELECT email FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK YEET
+										$resultEmail = $conn->query($sqlMailCheck); 
+								if($resultEmail->num_rows > 0){
+									echo "JEFF YUS";
+								}else{
+									echo "JEFF NAH";
+								}
+								$conn->close();	
+							}
+						?>
 					</td>
 				</tr>
 				<!--
 				<tr>
 					<td>	
-						<b><label for="date">Enter date of lesson:</b><i>YYYY-MM-DD</i></label>--><!-- USE 3 TO TEST MUST CHECK FOR VALID EMAIL-->
-					<!--</td>
+						<b><label for="date">Enter date of lesson:</b><i>YYYY-MM-DD</i></label>USE 3 TO TEST MUST CHECK FOR VALID EMAIL
+					</td>
 				</tr>
 				<tr>
 					<td>
@@ -244,14 +252,14 @@
 				<tr>
 					<td>
 						<br/>
-						<input type ="reset" id ="reset" tabindex ="4" />
-						<input type ="submit" name="book" colspan ="2" id ="search" tabindex ="5"/>
+						<!--<input type ="reset" id ="reset" tabindex ="4" />
+						<input type ="submit" name="book" colspan ="2" id ="search" tabindex ="5"/> -->
 					</td>
 				</tr>
 			</table>
 		</form>
 		<?php
-			}
+			//}
 		?>
 	</div>
 		
