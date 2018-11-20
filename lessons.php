@@ -9,7 +9,13 @@
 		<link rel="icon" href="favicon.ico">
 		
 	</head>
-
+	<script>
+		$( document ).ready(function() {
+			$( "#checklang" ).click(function() {
+				$( "#showlate" ).show();
+			});
+		});
+	</script>
 	<div id ="container">
 		<body>
 			
@@ -23,7 +29,7 @@
 			<a href = "form.php">Programmers</a>
 			<a href = "lessons.php">Lessons</a>
 			<a href = "studentForm.php">Students</a>
-			<a href = "#">Contact Us</a>
+			<a href = "contact.php">Contact Us</a>
 		</nav>	
 	
 		<div id = "content">
@@ -107,7 +113,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="userEmail" id="userEmail" tabindex="1" />
+						<input type="text" name="userEmail" id="userEmail" tabindex="1" required/>
 					</td>	
 				</tr>
 				<tr>
@@ -146,7 +152,7 @@
 	-->
 	<div id = "lessonFormBook">
 	<form action ="lessons.php" method="POST" id="userLessonBook">
-		<table id ='bookForm'>
+		<table id ="bookForm">
 			<tr>
 				<td> <!-- JQUERY EVENT LISTENER FOR BUTTON PRESS WILL SOMEHOW REVEAL PROGRAMMERS FOR SELECTED LANGUAGE,WILL FIGURE OUT -->
 					<b>Select a Language:</b>
@@ -160,11 +166,10 @@
 								echo "<option id='language' value='" . $row['language'] ."'>" . $row['language'] ."</option>";
 							}
 							echo "</select>";
-							$conn->close();
 						?>
 					<br/>
 					<br/>
-					<input type ="submit" name="checkLang" colspan ="2" id ="checkLang" value="Search Language" tabindex ="1"/>
+					<input type ="submit" name="checkLang" colspan ="2" id ="checkLang" value="Search Language" tabindex ="4"/>
 				</td>
 			</tr>
 			<tr>
@@ -172,7 +177,7 @@
 					<?php
 						if( isset( $_POST['checkLang'] ) ){
 							$bookLang = $_POST['language']; 
-							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
+							//$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
 							$sqlProgrammerFetch = "SELECT name FROM programmers WHERE programmerID IN(SELECT programmerID FROM skills WHERE languageID IN(SELECT languageID FROM languages where language = '$bookLang'));"; 
 										$resultProgrammerFetch = $conn->query($sqlProgrammerFetch); 
 								echo "Select a programmer for the lesson in the language:<br/>$bookLang<br/>";
@@ -182,7 +187,7 @@
 									echo "<option id='programmer' value='" . $row['name'] ."'>" . $row['name'] ."</option>";
 								}
 								echo "</select>";	
-							$conn->close();
+							//$conn->close();
 						}
 					?>
 				</td>
@@ -192,45 +197,19 @@
 					<b><label for="userEmail">Enter user email:</label></b>
 				</td>
 			</tr>
-			<tr>
+			<tr id="showLate">
 				<td>
-					<input type="text" name="userEmail" id="userEmail" tabindex="2" />
+					<input type="text" name="userEmail" id="userEmail" tabindex="4" />
 				</td>	
 			</tr>
 			<tr>
 				<td>	
-					<br/>
-					<br/>
-					<input type ="submit" name="checkMail" colspan ="2" id ="checkMail" value="Continue" tabindex ="3"/>
+					<b><label for="date">Enter date of lesson:</b><i>YYYY-MM-DD</i></label>
 				</td>
 			</tr>
-			<tr>
+			<tr id="showLate">
 				<td>
-					<?php
-						if( isset( $_POST['checkMail'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
-							$checkMail = $_POST['checkMail'];
-							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
-							$sqlMailCheck = "SELECT email FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK YEET
-									$resultEmail = $conn->query($sqlMailCheck); 
-							if($resultEmail->num_rows > 0){
-								echo "JEFF YUS";
-							}else{
-								echo "JEFF NAH";
-							}
-							$conn->close();	
-						}
-					?>
-				</td>
-			</tr>
-			<!--
-			<tr>
-				<td>	
-					<b><label for="date">Enter date of lesson:</b><i>YYYY-MM-DD</i></label>USE 3 TO TEST MUST CHECK FOR VALID EMAIL
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="text" name="date" id="date" tabindex="4" />
+					<input type="text" name="date" id="date" tabindex="5"  />
 				</td>	
 			</tr>
 			<tr>
@@ -238,17 +217,58 @@
 					<b><label for="time">Enter time of lesson:</b><i>HH:MM</i></label> 
 				</td>
 			</tr>
-			<tr>
+			<tr id="showLate">
 				<td>
-					<input type="text" name="time" id="time" tabindex="5" />
+					<input type="text" name="time" id="time" tabindex="6" />
 				</td>	
 			</tr>
-			-->
-			<tr>
+			<tr id="showLate">
 				<td>
 					<br/>
-					<!--<input type ="reset" id ="reset" tabindex ="6" />
-					<input type ="submit" name="book" colspan ="2" id ="search" tabindex ="7"/> -->
+					<input type ="reset" id ="reset" tabindex ="7" />
+					<input type ="submit" name="book" colspan ="2" id ="book" tabindex ="8"/> 
+				</td>
+			</tr>
+			<tr id="showLate">
+				<td>
+					<?php
+						if( isset( $_POST['book'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
+							$checkMail = $_POST['userEmail'];
+							//$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
+							$sqlMailCheck = "SELECT userID FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK YEET
+									$resultEmail = $conn->query($sqlMailCheck); 
+							if($resultEmail->num_rows > 0){
+								while($row = $resultEmail->fetch_assoc()){
+									$userID = $row["userID"];
+								}
+								$language = $row['language'];
+								$programmer = $_POST['programmer'];
+								$time = $row['time'];
+								$date = $row['date'];
+								$price = 15.00;
+								$sqlProgIDFetch = "SELECT programmerID FROM programmers WHERE name = '$programmer'"; 
+									$resultProgID = $conn->query($sqlProgIDFetch); 
+									while($row = $resultProgID->fetch_assoc()){
+										$programmer = $row["programmerID"];
+									}
+								$sqlLangIDFetch = "SELECT languageID FROM languages WHERE language = '$language'"; 
+									$resultLangID = $conn->query($sqlLangIDFetch); 
+									while($row = $resultLangID->fetch_assoc()){
+										$language = $row["languageID"];
+										echo "$languageID";
+									}
+								$sqlBookLesson = "INSERT INTO lessons(programmerID, languageID, userID, time, date, price) VALUES('$programmer', '$language', '$userID', '$time', '$date', '$price')";
+									if ($conn->query($sqlBookLesson) === TRUE) {
+										echo "Lesson Booked!";
+									} else {
+										echo "Error: " . $sqlBookLesson . "<br>" . $conn->error;
+									}
+							}else{
+								echo "No user found for this email";
+							}
+							$conn->close();	
+						}
+					?>
 				</td>
 			</tr>
 		</table>
@@ -272,12 +292,11 @@
 			
 			<a href = "lessons.php">| Lessons |</a>
 		
-			<a href = "#">| Testimonials |</a>
-			<a href = "#">| Contact Us |</a>
+
+			<a href = "contact.php">| Contact Us |</a>
 		</div>
 
 			
 		</body>	
 	</div>
 </html>
-

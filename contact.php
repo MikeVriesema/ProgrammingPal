@@ -55,7 +55,7 @@
 				<a href = "form.php">| Programmers |</a>
 				<a href = "lessons.php">| Lessons |</a>
 				<a href = "studentForm.php">| Students |</a>
-				<a href = "#">| Contact Us |</a>
+				<a href = "contact.php">| Contact Us |</a>
 			</div>
 
 		</body>	
