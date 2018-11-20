@@ -1,5 +1,5 @@
 # ET4132 PHP/SQL/HTML/CSS Assignment
-ET4132: Introduction to Web and Database Technology 
+<h1 style = "color: red;">ET4132: Introduction to Web and Database Technology</h1> 
 Autumn 2018
 
 Database & Website Design Assignment 
