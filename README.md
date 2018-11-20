@@ -1,10 +1,10 @@
 # ET4132 PHP/SQL/HTML/CSS Assignment
-<h1 style = "color: red;">ET4132: Introduction to Web and Database Technology</h1> 
+ET4132: Introduction to Web and Database Technology
 Autumn 2018
 
 Database & Website Design Assignment 
 
-Weight: 15% of the Module’s Total 
+Weight: 15% of the Module’s Total (jeff)
 Submission due: Thursday 29th November 2018
 Presentation: Friday 30 November 2018 
 Failure to meet Deadline: Zero Marks 
