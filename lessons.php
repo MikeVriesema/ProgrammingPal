@@ -200,7 +200,6 @@
 			<tr>
 				<td>	
 					<br/>
-					<br/>
 					<input type ="submit" name="checkMail" colspan ="2" id ="checkMail" value="Continue" tabindex ="3"/>
 				</td>
 			</tr>
@@ -208,7 +207,7 @@
 				<td>
 					<?php
 						if( isset( $_POST['checkMail'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
-							$checkMail = $_POST['checkMail'];
+							$checkMail = $_POST['userEmail'];
 							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
 							$sqlMailCheck = "SELECT email FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK YEET
 									$resultEmail = $conn->query($sqlMailCheck); 
@@ -222,10 +221,9 @@
 					?>
 				</td>
 			</tr>
-			<!--
 			<tr>
 				<td>	
-					<b><label for="date">Enter date of lesson:</b><i>YYYY-MM-DD</i></label>USE 3 TO TEST MUST CHECK FOR VALID EMAIL
+					<b><label for="date">Enter date of lesson:</b><i>YYYY-MM-DD</i></label>
 				</td>
 			</tr>
 			<tr>
@@ -243,12 +241,11 @@
 					<input type="text" name="time" id="time" tabindex="5" />
 				</td>	
 			</tr>
-			-->
 			<tr>
 				<td>
 					<br/>
-					<!--<input type ="reset" id ="reset" tabindex ="6" />
-					<input type ="submit" name="book" colspan ="2" id ="search" tabindex ="7"/> -->
+					<input type ="reset" id ="reset" tabindex ="6" />
+					<input type ="submit" name="book" colspan ="2" id ="search" tabindex ="7"/> 
 				</td>
 			</tr>
 		</table>
@@ -281,3 +278,18 @@
 	</div>
 </html>
 
+<?php
+			if( isset( $_POST['submit'] )){
+				$username = $_POST['username'];
+				$email = $_POST['email'];
+				$address = $_POST['address'];
+				$conn = mysqli_connect("localhost", "root", "", "PlanetExpress") or die("Unable to connect to DBMS.");
+				$sql = "INSERT INTO users(username, email, address) VALUES('$username', '$email', '$address')";
+				if ($conn->query($sql) === TRUE) {
+					echo "User registered!";
+				} else {
+					echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+				$conn->close();
+			}
+		?>
