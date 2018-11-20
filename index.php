@@ -44,30 +44,47 @@
 			<p><b>Affordable:</b>
 			<br/>
 			<br/>
-			We take pride that our service is affordable </p>
+			As current students we know you have more <b>important</b> things (*cough cough*) to spend money on. We take pride that our service is affordable and you can sleep easy knowing you'll survive another semester. </p>
 
-			<p><b>Mental Sanity:</b>
+			<p><b>"Less Stress, More Success":</b>
 			<br/>
 			<br/>
 			We all know the pain of getting the dreaded "Segmentation Fault (Core Dumped)" or the classic "java.lang.NullPointerException". Don't worry we're here to help and make sure your coding experience is as smooth as possible.</p>
 
-			<p>We cover various languages such as:<br/> <b>Java, <br/>C,<br/> PHP,<br/>HTML/CSS</b></p>
+			<p>We cover various languages such as:<br/> <b>Java, <br/>C,<br/> PHP,<br/>HTML/CSS<br/>SQL,<br/><br/>and many more...<br/></b></p>
 
 			</div>
 			
 			<div id = "content2">
 			
 				<h2>Meet The Team</h2>
+
 			<div id = "meetTheTeam">
 				
 			
-				<img src="images/gearoid.jpg" title="Code"  alt="Code"></img>
+				<img src="images/gearoid.jpg" title="gags"  alt="Gearoid"></img>
+				<img src="images/ryan.jpg" title="ryano"  alt="Ryan"></img>
+				<img src="images/conall.jpg" title="LIT"  alt="Conall"></img>
 			</div>
+
 
 			<div id = "meetTheTeamText">
 				<h3><b>Gearoid Kirwan: (Chief Executive Officer) </b></h3>
 
-				<p>"What started as a side project has grown into something I couldn't have imagined. From living in Adare to the high rise of San Francisco I am humbled to be working with some of the best developers in the world"</p>
+				<p>"What started as a side project has grown into something I couldn't have imagined. From living in Adare to the high rise of San Francisco I am humbled to be working with some of the best developers in the world."</p>
+
+				<br/>
+
+				<h3><b>Ryan O'Connor: (Lead Designer) </b></h3>
+
+				<p>"The secret to creativity is knowing how to hide your sources. Shout-out to Stack Overflow."</p>
+
+				<br/>
+
+				<h3><b>Conall McAteer: (Back-end Developer) </b></h3>
+
+				<p>"Transferring from LIT to UL created so many opportunities which have allowed me to be where I am today. "</p>
+
 			</div>	
 		</div>
 			
@@ -86,7 +103,7 @@
 				<a href = "form.php">| Programmers |</a>
 				<a href = "lessons.php">| Lessons |</a>
 				<a href = "studentForm.php">| Students |</a>
-				<a href = "#">| Contact Us |</a>
+				<a href = "contact.php">| Contact Us |</a>
 			</div>
 
 		</body>	
