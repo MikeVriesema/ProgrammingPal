@@ -52,7 +52,7 @@
 					if($resultLessons->num_rows > 0){
 						echo '<div id = returnedFormDiv>';
 						echo '<table id="returnedForm">';
-						echo "<h2>Lesson Bookings: $userEmail</h2>";
+						echo "<h3>Lesson Bookings: $userEmail</h3>";
 						echo "<tr><th>LessonID</th><th>Programmer</th><th>Language</th><th>UserEmail</th><th>Time</th><th>Date</th><th>Price</th></tr>";
 						while($row = $resultLessons->fetch_assoc())
 						{
@@ -75,8 +75,8 @@
 								}
 							echo "<tr><td>$lessonID</td><td>$programmerName</td><td>$languageName</td><td>$userEmail</td><td>$time</td><td>$date</td><td>€$price</td></tr>";
 						}
-						echo "<br/>Total Cost: €$total"; //HELP
-						echo "</table>";
+						echo "<tr><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td> <b>Total Cost: €$total</b></td></tr>"; //HELP
+						echo "</table>"; 
 					} else 
 					{
 						echo "<h4>No results returned.</h4>";
@@ -262,22 +262,19 @@
 		
 		<div class = "clear"></div>
 		<div id = "footer">
-			<p>Programming Pal,</p>
-			<p>123 UL Street,</p>
-			<p>Co. Limerick</p>
-			<a href="mailto:programming4life@programmingpal.com" target="_top">Send us an email!</a>
-			
-			<br/>
-			<br/>
-			<a href = "index.php">| Home |</a>
-			
-			<a href = "form.php">| Register |</a>
-			
-			<a href = "lessons.php">| Lessons |</a>
-		
-			<a href = "contact.php">| Contact Us |</a>
-		</div>
-
+				<p>Programming Pal,</p>
+				<p>123 UL Street,</p>
+				<p>Co. Limerick</p>
+				<a href="mailto:programming4life@programmingpal.com" target="_top">Send us an email!</a>
+				
+				<br/>
+				<br/>
+				<a href = "index.php">| Home |</a>
+				<a href = "form.php">| Programmers |</a>
+				<a href = "lessons.php">| Lessons |</a>
+				<a href = "studentForm.php">| Students |</a>
+				<a href = "contact.php">| Contact Us |</a>
+			</div>
 			
 		</body>	
 	</div>

@@ -1,78 +1,107 @@
-html{
-	background-color: rgb(239, 239, 239);
-	font-family: 'Roboto', sans-serif, sans-serif;	
+html
+{
+    font-family: 'Roboto', sans-serif, sans-serif;
+    background-color: rgb(239, 239, 239);
+}
+
+a
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    background-color: rgb(247,250,255);;
+}
+
+a:visited
+{
+    font-family: Georgia;
+    color: black;
+}
+
+body
+{
+    margin: 0;
+    background-color: rgb(239, 239, 239);
+}
+.clear
+{
+    clear: both;
+}
+
+.clearfix {
+	overflow: auto;
+	margin-right: 50px;
+    margin-left: 40px;
+}
+#container
+{
+    width: auto;
+    margin: auto;
+}
+
+#content
+{
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(239, 239, 239);
+}
+
+
+.contentClass p
+{
+    margin: 80px;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    background-color: rgb(103, 173, 214);
+}
+
+#content2
+{
+    float: right;
+    width: 50%;
+    height: 100%;
+    height: auto;
+    background-color: rgb(239, 239, 239);
+}
 	
+#header
+{
+    width: auto;
+    height: auto;
+    border: 1px rgba(0, 0, 0,.0) solid;
+    background-color: rgb(26, 28, 31);
 }
 
-body{
-	margin:0px;
-	padding:0px;
-	font-size: 1.0em;
-	text-align: center;
-	background-color: rgb(239, 239, 239	);
-		
+h1
+{
+    font-size: 50pt;
+    padding: 20px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px rgb(2, 115, 181);
 }
 
-a:hover{
-   	background-color: #f7faff;
+h2
+{
+    font-size: 50pt;
+    margin: 100px;
+    padding: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-bottom-left-radius: 40px;
+    background-color: rgb(2, 115, 181);
+    text-shadow: 10px 5px rgba(45,45,45,.2);
 }
 
-#footer a:hover{
-   	background-color: #f7faff;
-}
-
-a:visited{
-   	color: black;
-	font-family:Georgia;
-
-}
-
-a{
-	text-decoration:none;
-	
-}
-
-nav a{
-
-	margin:20px;
-	padding:25px;
-	text-decoration:none;
-	text-shadow: 2px 4px rgb(227, 232, 237);
-    color: rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255);
-	box-shadow: 10px 5px rgba(0,0,0,0.2);
-	border-bottom-left-radius: 30px;
-	border-collapse: collapse;
-
-}	
-
-#footer a{
-
-	
-	text-decoration:none;
-    color: rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255);
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
-	border-radius: 5px;
-	border-collapse: collapse;
-
-}
-#container{
-	width: auto;
-	margin: auto;
-	text-align: left;
-	
-}
-
-#meetTheTeam{
-
-	float:left;
-	width: 25%;
-
-}
-
-#meetTheTeamText h3 {
+h3
+{
 
 	padding:30px;
 	margin-left: 70px;
@@ -84,176 +113,96 @@ nav a{
 	color: rgb(255, 255, 255);
 }
 
-#meetTheTeam img{
 
-    border-radius: 50%;
-	padding: 20px;
-	padding-bottom: 100px;
+#meetTheTeam
+{
+    float: left;
     width: 100%;
+}
+
+#meetTheTeam img
+{
+	vertical-align: middle;
+	width: 25%;
+    float: left;
     height: 20%;
+    padding: 20px;
+    padding-bottom: 100px;
+    border-radius: 50%;
 }
 
-#meetTheTeamText {
-
-	float:right;
-	width: 70%;
-
+#meetTheTeamText
+{
+    float: right;
+    width: 70%;
 }
 
-#meetTheTeamText p{
-
-	background-color:rgb(103, 173, 214);
-    color: rgb(255, 255, 255);
-    padding-left: 40px;
+#meetTheTeam p
+{
+	width: 50%;
+    padding-top: 20px;
     padding-right: 40px;
-    padding-top: 20px;
     padding-bottom: 20px;
-    border-radius: 20px;
-}
-
-		
-#header{
-	width:auto;
-	height:auto;
-	background-color: rgb(26, 28, 31);
-	border:1px rgba(0, 0, 0,.0) solid; 	
-
-		
-}
-
-	
-h1{
-	padding:20px;
-	text-align: center;
-	text-shadow: 2px 2px rgb(158, 8, 8);
-	font-size: 50pt;
-	color: rgb(255, 255, 255);
-		
-}
-
-h2{
-	padding:30px;
-	margin: 100px;
-	text-align: center;
-	text-shadow: 10px 5px rgba(45,45,45,0.2);
-	font-size: 50pt;
-	background-color:rgb(2, 115, 181);
-	border-bottom-left-radius: 40px;
-	color: rgb(255, 255, 255);
-		
-}
-
-
-
-#header sub{
-			
-	color:white;
-	font-size:10pt;
-}
-
-#header h3{
-	color: rgb(255, 255, 255);
-		
-}
-		
-nav{
-	display: flex; 
-	justify-content: center;
-	padding:20px;
-	height:100px;
-	background-color: rgb(47,54,61);	
-	color: rgb(0, 0, 0);
-	
-}
-
-		
-#menu{
-	width:300px;
-	float:left;
-	background-color: green;
-
-}
-		
-	
-#content{
-	width:50%;
-	height:100%;
-	float:left;
-	bottom: 0	;
-	background-color:rgb(239, 239, 239);
-	
-}
-
-		
-
-
-#content2{
-	width:50%;
-	height:100%;
-	height:auto;
-	float:right;
-	background-color: rgb(239, 239, 239);
-	
-}
-
-#content2 img{
-	padding-left:80px;
-	padding-right:80px;
-	background-color: rgb(239, 239, 239);
-
-
-		
-}
-	
-	
-#content p{
-	
-	margin: 80px;
-	background-color: rgb(103, 173, 214);
+    padding-left: 40px;
     color: rgb(255, 255, 255);
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 20px;
-    padding-bottom: 20px;
     border-radius: 20px;
-}
+    float: right;
+    background-color: rgb(103, 173, 214);
 	
-
-
-#content2 p{
-		
-	margin:80px;
-		
 }
 
-ul li{
-	margin: 12px;
-    padding: 12px;
+nav
+{
+    display: flex;
+    height: 100px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(47,54,61);
+    justify-content: center;
+}
+
+nav a
+{
+    margin: 20px;
+    padding: 25px;
     text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: rgb(47, 54, 61);
-    border-radius: 5px;
-    border-collapse: collapse;
-	list-style-type: none;
-	width: 200px;
-}
-		
-#footer{
-	
-	border:1px rgba(221, 221, 223,.0) solid;
-	padding:80px;
-	background-color:rgb(252, 252, 252);
-	width:auto;
-	height:auto;
+    color: rgb(0, 0, 0);
+    border-bottom-left-radius: 30px;
+	background-color: rgb(255, 255, 255);
+	text-shadow: 2px 4px rgb(227, 232, 237);
+    box-shadow: 10px 5px rgba(0,0,0,.2); 
 }
 
-#footer p{
-	font-style:italic;	
-	
-	
+
+sub
+{
+    font-size: 10pt;
+    color: white;
 }
-		
-.clear{
-		
-	clear:both;
+
+#footer
+{
+    width: auto;
+    height: auto;
+    padding: 80px;
+    border: 1px rgba(221, 221, 223,.0) solid;
+    background-color: rgb(252, 252, 252);
 }
+
+#footer a:hover
+{
+    background-color: rgb(247,250,255);;
+}
+
+#footer a
+{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+ 
+#footer p
+{
+    font-style: italic;
+}
+

@@ -27,17 +27,38 @@
 			<a href = "contact.php">Contact Us</a>
 		</nav>	
 	
-        <div id = "content">
+        <div id = "content" class = "contentClass">
             <h2><b>Luke O'Sullivan Griffin: <sub>(HTML/CSS)</sub> </b></h2>
-            <p>"If google chrome caches one more time"</p>
-       
+            <p>"If google chrome caches the stylesheet one more time"
+            <br/>
+            <br/>
+            "Front-End: text-align: center;"
+            <br/>
+            <br/>
+            Back-End:
+            "if ($conn->query($registerProg) === TRUE) {
+            echo Programmer Registered!";
+            $sqlProgIDFetch = "SELECT programmerID FROM programmers WHERE email = '$progEmail'"; 
+            <br>
+            <br>
+            <b><a href = "https://github.com/LukeOSG">Luke's GitHub</a></b></p>
+
+           
 
         </div>
 
-		<div id = "content2">
-			<h2><b>Mike Vriesema: <sub>(SQL/PHP)</sub> </b></h2>
+		<div id = "content2"  class = "contentClass">
+			<h2><b>Mike Vriesema: <br/> <sub>(SQL/PHP)</sub></b></h2>
 
-			<p>"I've really learned to cope with my constant PHP induced headache"</p>
+            <p>"I've really learned to cope with my constant PHP induced headache"
+            <br/>
+            <br/>
+            "How do I make a new line in HTML?"
+            <br>
+            <br>
+            <b><a href = "https://github.com/CommanderDolphin">Mike's GitHub</a></p></b>
+
+        
         </div>
 			
 		
@@ -61,4 +82,3 @@
 		</body>	
 	</div>
 </html>
-

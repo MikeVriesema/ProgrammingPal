@@ -1,341 +1,269 @@
-html{
-	background-color:rgb(239, 239, 239);
-	font-family: 'Roboto', sans-serif, sans-serif;	
-	
+html
+{
+    font-family: 'Roboto', sans-serif, sans-serif;
+    background-color: rgb(239, 239, 239);
 }
 
-body{
-	margin:0px;
-	padding:0px;
-	font-size: 1.0em;
+
+
+a
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    background-color: #f7faff;
+}
+
+
+a:visited
+{
+    font-family: Georgia;
+
+    color: black;
+}
+
+body
+{
+	margin: 0;
 	background-color: rgb(239, 239, 239);
-		
+	text-align: center;
 }
 
-a:hover{
-   	background-color: #f7faff;
+.clear
+{
+    clear: both;
 }
 
-#footer a:hover{
-   	background-color: #f7faff;
+#container
+{
+    width: auto;
+    margin: auto;
 }
 
-a:visited{
-   	color: black;
-	font-family:Georgia;
-
+#content
+{
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(239, 239, 239);
 }
 
-a{
-	text-decoration:none;
-	
+.contentClass p
+{
+    margin: 80px;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    background-color: rgb(103, 173, 214);
 }
 
-#content2 img{
+#content2
+{
+    float: right;
+    width: 50%;
+    height: 100%;
+    height: auto;
+    background-color: rgb(239, 239, 239);
+}
 
-    padding-left: 80px;
+#content2 img
+{
+    width: 50%;
     padding-right: 80px;
-	width: 50%;
-	border-radius: 40%
+    padding-left: 80px;
+    border-radius: 40%;
 }
 
 
-nav a{
-
-	margin:20px;
-	padding:25px;
-	text-decoration:none;
-	text-shadow: 2px 4px rgb(227, 232, 237);
-    color: rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255);
-	box-shadow: 10px 5px rgba(0,0,0,0.2);
-	border-bottom-left-radius: 30px;
-	border-collapse: collapse;
-
-}	
-
-#footer a{
-
-	
-	text-decoration:none;
-    color: rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255);
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
-	border-radius: 5px;
-	border-collapse: collapse;
-
-}
-#container{
-	width: auto;
-	margin: auto;
-	text-align: left;
-	
+img
+{
+    width: 80%;
+    height: 60%;
 }
 
-#formTable{
-	
-	
-	padding-left: 35%;
-	
-	
-	
+#formTable
+{
+    padding-left: 35%;
 }
 
-img{
-	
-	width:80%;
-	height:60%;
-	
-}
-		
-#header{
-	width:auto;
-	height:auto;
-	background-color: rgb(26, 28, 31);
-	border:1px rgba(0, 0, 0,.0) solid; 	
-
-		
-}
-		
-h1{
-	padding:20px;
-	text-align: center;
-	text-shadow: 2px 2px rgb(158, 8, 8);;
-	font-size: 50pt;
-	color: rgb(255, 255, 255);
-		
+#formTable label
+{
+    padding: 5px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-bottom-left-radius: 10px;
+    background-color: rgb(2, 115, 181);
 }
 
-h2{
+#formTable tr td
+{
+    display: inline-block;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#formTable #reset,
+#submit
+{
+    margin-right: 10px;
+    margin-left: 40px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgb(226, 226, 226);
+}
+
+#header
+{
+    width: auto;
+    height: auto;
+    border: 1px rgba(0, 0, 0,.0) solid;
+    background-color: rgb(26, 28, 31);
+}
+
+h1
+{
+    font-size: 50pt;
+    padding: 20px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px rgb(2, 115, 181);
+}
+
+h2
+{
+    font-size: 50pt;
+    margin: 100px;
+    padding: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-bottom-left-radius: 40px;
+    background-color: rgb(2, 115, 181);
+    text-shadow: 10px 5px rgba(45,45,45,.2);
+}
+
+h3
+{
+
 	padding:30px;
-	margin: 100px;
+	margin-left: 70px;
+	margin-right: 70px;
 	text-align: center;
-	text-shadow: 10px 5px rgba(45,45,45,0.2);
-	font-size: 50pt;
-	background-color: rgb(2, 115, 181);
+	font-size: 14pt;
+    background-color:rgb(2, 115, 181);
 	border-bottom-left-radius: 40px;
 	color: rgb(255, 255, 255);
-		
 }
 
 
-#formTable label{
-	
-	padding:5px;
-	text-align: center;
-	font-size: 12pt;
-	background-color:  rgb(2, 115, 181);
-	border-bottom-left-radius: 10px;
-	color: rgb(255, 255, 255);
-		
-
-}
-
-#formTable tr td{
-	padding-top: 20px;	
-	padding-bottom: 20px;	
-	display: inline-block;
-}
-
-table#returnedForm {
-	text-align: center;
-	font-size: 12pt;
-	background-color: rgb(247, 247, 247);
-	display: inline-block;
-
-}
-
-
-
-p#returnedForm {
-	padding:100px;
-	text-align: center;
-	font-size: 12pt;
-	background-color:rgb(47,54,61);	
-	border-radius: 100px; 
-}
-
-div#lessonFormSearch {
+#lessonFormSearch
+{
     padding-bottom: 100px;
 }
 
-table#userLessonForm {
-	padding-bottom: 10px;
-    text-align: center;
-    font-size: 12pt;
-    background-color: rgb(247, 247, 247);
-    border-radius: 10px;
-    display: inline-block;
-
-}
-
-#returnedFormDiv{
-
-
-	padding-top:50px;
-	padding-bottom:100px; 
-	text-align: center;
-	font-size: 12pt;
-	background-color:rgb(218, 218, 218);
-	border-radius: 100px;
-}
-
-#userLessonForm table {
-
-	padding: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-    font-size: 12pt;
-    background-color: rgb(218, 218, 218);
-    border-radius: 50px;
-    display: inline-block;
-}
-
-#userLessonBook {
-	padding: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-    font-size: 12pt;
-    background-color: rgb(218, 218, 218);
-    border-radius: 50px;
-    display: inline-block;
-}
-	
-
-
-#formTable #reset, #submit{
-	
-	padding:20px;
-	margin-left:40px;
-	margin-right:10px;
-	text-align: center;
-	font-size: 12pt;
-	background-color: rgb(226, 226, 226);
-	border-radius: 20px;
-
-		
-
-}
-
-#header sub{
-			
-	color:white;
-	font-size:10pt;
-}
-
-#header h3{
-	color: rgb(255, 255, 255);
-		
-}
-		
-nav{
-	display: flex; 
-	justify-content: center;
-	padding:20px;
-	height:100px;
-	background-color: rgb(47,54,61);		
-	color: rgb(0, 0, 0);
-	
-}
-
-		
-#menu{
-	width:300px;
-	float:left;
-	background-color: green;
-
-}
-		
-	
-#content{
-	width: 50%;
-    height: 100%;
-    float: left;
-    bottom: 0;
-    background-color: rgb(239, 239, 239);
-    text-align: center;
-}
-
-		
-
-
-#content2{
-	width:50%;
-	height:100%;
-	height:auto;
-	float:right;
-	background-color: rgb(239, 239, 239);
-	text-align: center;
-	
-}
-
-#content2 img{
-	padding-left:80px;
-	padding-right:80px;
-	background-color: rgb(239, 239, 239);
-
-
-		
-}
-	
-	
-#content p{
-	
-	margin: 80px;
-    background-color: rgb(80, 80, 80);
-    color: rgb(255, 255, 255);
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 20px;
-		
-}
-
-#content2 p{
-		
-	margin: 80px;
-    background-color: rgb(80, 80, 80);
-    color: rgb(255, 255, 255);
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 20px;
-		
-}
-
-ul li{
-	margin:30px;
-	padding:20px;
-	text-decoration:none;
+nav
+{
+    display: flex;
+    height: 100px;
+    padding: 20px;
     color: rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255);
-	box-shadow: 10px 5px rgba(0,0,0,0.2);
-	border-top-left-radius:20px;
-	border-top-right-radius:20px;
-	border-radius: 20px;
-	border-collapse: collapse;
-	list-style-type: none;
-}
-		
-#footer{
-	
-	border:1px rgba(221, 221, 223,.0) solid;
-	padding:80px;
-	background-color:rgb(252, 252, 252);
-	width:auto;
-	height:auto;
+    background-color: rgb(47,54,61);
+    justify-content: center;
 }
 
-#footer p{
-	font-style:italic;	
-	
-	
+nav a
+{
+    margin: 20px;
+    padding: 25px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-bottom-left-radius: 30px;
+	background-color: rgb(255, 255, 255);
+	text-shadow: 2px 4px rgb(227, 232, 237);
+    box-shadow: 10px 5px rgba(0,0,0,.2); 
 }
-		
-.clear{
-		
-	clear:both;
+
+#userLessonForm table
+{
+    display: inline-block;
+    margin-bottom: 50px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: rgb(218, 218, 218);
 }
+
+#userLessonBook
+{
+    display: inline-block;
+    margin-bottom: 50px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: rgb(218, 218, 218);
+}
+
+
+table#returnedForm
+{
+
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(247, 247, 247);
+}
+
+p#returnedForm
+{
+    padding: 100px;
+    text-align: center;
+    border-radius: 100px;
+    background-color: rgb(47,54,61);
+}
+#returnedFormDiv
+{
+    padding-top: 50px;
+    padding-bottom: 100px;
+    text-align: center;
+    border-radius: 100px;
+    background-color: rgb(218, 218, 218);
+}
+
+sub
+{
+    font-size: 10pt;
+    color: white;
+}
+
+#footer
+{
+    width: auto;
+    height: auto;
+    padding: 80px;
+    border: 1px rgba(221, 221, 223,.0) solid;
+	background-color: rgb(252, 252, 252);
+	text-align: left;
+}
+
+#footer a:hover
+{
+    background-color: rgb(247,250,255);;
+}
+
+#footer a
+{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+ 
+#footer p
+{
+    font-style: italic;
+}
+
