@@ -39,7 +39,7 @@
 				$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS.");
 				$sqlRegisterUser = "INSERT INTO users(username, email) VALUES('$name', '$email')";
 				if ($conn->query($sqlRegisterUser) === TRUE) {
-					echo "User registered!";
+					echo "<h4>User Registered</h4>";
 				} else {
 					echo "Error: " . $sqlRegisterUser . "<br>" . $conn->error;
 				}

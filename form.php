@@ -65,47 +65,42 @@
 										$buttonCount++;
 									}
 								} else {
-									echo "<h2>No results returned.</h2>";
+									echo "<h4>No results returned.</h4>";
 								}
 								if( isset( $_POST['submit'] ) ){
-									if($_POST['name'] != "" && $_POST['email'] != "" ){
-										$progName = $_POST['name'];
-										$progEmail = $_POST['email'];
-										$langs=array();
-										$langID=array();
-										$progData=array();
-										$counter = 0 ;
-										for($i = 1; $i < $buttonCount; $i++){
-											if(!empty($_POST[$i])){
-												$langs[$counter] = $_POST[$i];
-												$langID[$counter] = $i;
-												$counter++;
-											}
+									$progName = $_POST['name'];
+									$progEmail = $_POST['email'];
+									$langs=array();
+									$langID=array();
+									$progData=array();
+									$counter = 0 ;
+									for($i = 1; $i < $buttonCount; $i++){
+										if(!empty($_POST[$i])){
+											$langs[$counter] = $_POST[$i];
+											$langID[$counter] = $i;
+											$counter++;
 										}
-										$registerProg = "INSERT INTO programmers(name, email) VALUES('$progName', '$progEmail')";
-										if ($conn->query($registerProg) === TRUE) {
-											echo "<br/>Programmer Registered!<br/>";
-											$sqlProgIDFetch = "SELECT programmerID FROM programmers WHERE email = '$progEmail'"; 
-											$resultProgID = $conn->query($sqlProgIDFetch); 
-											while($row = $resultProgID->fetch_assoc()){
-												$progID = $row["programmerID"];
-											}						
-											for($i = 0;$i<sizeof($langs);$i++) {
-												$progData[] = '("'.$progID.'", "'.$langID[$i].'")';
-											}
-											$registerSkill = 'INSERT INTO skills(programmerID, languageID)  VALUES'.implode(',',$progData);
-											if ($conn->query($registerSkill) === TRUE) {
-												echo "Language set entered.";
-											} else {
-												echo "Error: " . $registerSkill . "<br>" . $conn->error;
-											}
+									}
+									$registerProg = "INSERT INTO programmers(name, email) VALUES('$progName', '$progEmail')";
+									if ($conn->query($registerProg) === TRUE) {
+										echo "<br/><h4>Programmer Registered!</h4><br/>";
+										$sqlProgIDFetch = "SELECT programmerID FROM programmers WHERE email = '$progEmail'"; 
+										$resultProgID = $conn->query($sqlProgIDFetch); 
+										while($row = $resultProgID->fetch_assoc()){
+											$progID = $row["programmerID"];
+										}						
+										for($i = 0;$i<sizeof($langs);$i++) {
+											$progData[] = '("'.$progID.'", "'.$langID[$i].'")';
+										}
+										$registerSkill = 'INSERT INTO skills(programmerID, languageID)  VALUES'.implode(',',$progData);
+										if ($conn->query($registerSkill) === TRUE) {
+											echo "<h4>Language Set entered</h4>";
 										} else {
-											echo "Error: " . $registerProg . "<br>" . $conn->error;
+											echo "Error: " . $registerSkill . "<br>" . $conn->error;
 										}
 									} else {
-										echo "Please enter a valid name and email.";
+										echo "Error: " . $registerProg . "<br>" . $conn->error;
 									}
-								
 								}
 								$conn->close();
 							?>
@@ -120,8 +115,6 @@
 		</form>				
 	</div>	
 			
-	
-	
 	<div id = "content2">
 		
 		<h2>Testimonial</h2>

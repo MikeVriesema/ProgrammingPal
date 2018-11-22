@@ -35,6 +35,7 @@
 			if( isset( $_POST['search'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
 				do{
 					$userEmail = $_POST['userEmail']; //SETS EMAIL INTO VARIABLE
+					$total=0;
 					$conn = mysqli_connect("localhost", "root", "","ProgrammingPal") or die("Unable to connect to DBMS."); //ATTEMPTS DBMS CONNECTION OTHERWISE KILLS IT
 					$sqlMailFetch = "SELECT userID FROM users WHERE email = '$userEmail'"; //PULLS USER ID FROM USERS USING INPUT EMAIL AS SQL QUERY
 							$resultMail = $conn->query($sqlMailFetch); //RUNS QUERY AND STORES SQL RESULT IN RESULTMAIL
@@ -61,7 +62,7 @@
 							$time = $row["time"];
 							$date = $row["date"];
 							$price = $row["price"];
-
+							$total = $total+$price;
 							$sql3 = "SELECT name FROM programmers WHERE programmerID = '$programmerID'";
 								$resultProgram = $conn->query($sql3);
 								while($row = $resultProgram->fetch_assoc()){
@@ -74,6 +75,7 @@
 								}
 							echo "<tr><td>$lessonID</td><td>$programmerName</td><td>$languageName</td><td>$userEmail</td><td>$time</td><td>$date</td><td>€$price</td></tr>";
 						}
+						echo "<br/>Total Cost: €$total"; //HELP
 						echo "</table>";
 					} else 
 					{
@@ -121,22 +123,24 @@
 	<h2>Book A Lesson</h2>
 	<div id = "lessonFormBook">
 		<?php
+			if( isset( $_POST['checkLang'] ) ){
+				$selectedLang = $_POST['language']; 
+				echo "$selectedLang";
+			}
 			if( isset( $_POST['bookLesson'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
 				$checkMail = $_POST['userEmail'];
 				$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
-				$sqlMailCheck = "SELECT email FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK YEET
+				$sqlMailCheck = "SELECT userID FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK AND RETURNS USERID
 						$resultEmail = $conn->query($sqlMailCheck); 
 				if($resultEmail->num_rows > 0){
+					while($row = $resultEmail->fetch_assoc()){
+						$userID = $row["userID"];
+					}
 					$progName = $_POST['programmer'];
 					$langName = $_POST['language'];
 					$time = $_POST['time'];
 					$date = $_POST['date'];
 
-					$sql2 = "SELECT userID FROM users WHERE email = '$checkMail'";
-						$resultUser = $conn->query($sql2);
-						while($row = $resultUser->fetch_assoc()){
-							$userID = $row["userID"];
-						}
 					$sql3 = "SELECT programmerID FROM programmers WHERE name = '$progName'";
 						$resultProgram = $conn->query($sql3);
 						while($row = $resultProgram->fetch_assoc()){
@@ -149,30 +153,34 @@
 						}
 					$bookLesson = "INSERT INTO lessons(programmerID, languageID, userID, time, date, price) VALUES($progID, $langID, $userID, '$time', '$date', 15.00);";
 					if($conn->query($bookLesson)===TRUE){
-						echo "User registered!";
+						echo "<h2>Lesson Booked</h2>";
 					} else {
 						echo "Error: " . $bookLesson . "<br>" . $conn->error;
 					}
 				}else{
-					echo "No registered email found.";
+					echo "<h4>No registered email found.</h4>";
 				}
 				$conn->close();	
 			}else{
 			
 		?>
-	<form method="POST" id="userLessonBook">
+	<form action ="lessons.php" method="POST" id="userLessonBook">
 		<table id ='bookForm'>
 			<tr>
 				<td> <!-- JQUERY EVENT LISTENER FOR BUTTON PRESS WILL SOMEHOW REVEAL PROGRAMMERS FOR SELECTED LANGUAGE,WILL FIGURE OUT -->
 					<b>Select a Language:</b>
 					<br/>
 						<?php
+							if( isset( $_POST['checkLang'] ) ){
+								$selectedLang = $_POST['language']; 
+							}
 							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
 							$sqlLangFetch = "SELECT language FROM languages"; 
 									$resultLangList = $conn->query($sqlLangFetch); 
-							echo "<select name=language>";
+							echo "<select required name=language>";
 							while($row = $resultLangList->fetch_assoc()){
-								echo "<option id='language' value='" . $row['language'] ."'>" . $row['language'] ."</option>";
+								$selected = $selectedLang == $row['language'] ? 'selected' : '';
+								echo "<option id='language' " . $selected . " value='" . $row['language'] ."'>" . $row['language'] ."</option>";
 							}
 							echo "</select>";
 							$conn->close();
@@ -190,13 +198,17 @@
 							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
 							$sqlProgrammerFetch = "SELECT name FROM programmers WHERE programmerID IN(SELECT programmerID FROM skills WHERE languageID IN(SELECT languageID FROM languages where language = '$bookLang'));"; 
 										$resultProgrammerFetch = $conn->query($sqlProgrammerFetch); 
-								echo "Select a programmer for the lesson in the language:<br/>$bookLang<br/>";
-								echo "<select name=programmer>";
-								while($row = $resultProgrammerFetch->fetch_assoc())
-								{
-									echo "<option id='programmer' value='" . $row['name'] ."'>" . $row['name'] ."</option>";
+								if($resultProgrammerFetch !== NULL){
+									echo "Select a programmer for the lesson in the language:<br/>$bookLang<br/>";
+									echo "<select name=programmer>";
+									while($row = $resultProgrammerFetch->fetch_assoc())
+									{
+										echo "<option id='programmer' value='" . $row['name'] ."'>" . $row['name'] ."</option>";
+									}
+									echo "</select>";	
+								}else{
+									echo "<h4>No programmer available</h4>";
 								}
-								echo "</select>";	
 							$conn->close();
 						}
 					?>
@@ -219,7 +231,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="date" name="date" id="date" tabindex="4" />
+					<input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" tabindex="4" />
 				</td>	
 			</tr>
 			<tr>
@@ -229,7 +241,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="time" name="time" id="time" tabindex="5" />
+					<input type="time" name="time" id="time" min="09:00" max="18:00" value="09:00" step="3600" tabindex="5" />
 				</td>	
 			</tr>
 			<tr>
