@@ -23,7 +23,7 @@
 			<a href = "form.php">Programmers</a>
 			<a href = "lessons.php">Lessons</a>
 			<a href = "studentForm.php">Students</a>
-			<a href = "#">Contact Us</a>
+			<a href = "contact.php">Contact Us</a>
 		</nav>	
 
 		<div id = "content">
@@ -37,7 +37,7 @@
 						<b><label for="name">Name:</label></b>
 					</td>
 					<td>
-						<input type="text" name="name" id="" tabindex="1" />
+						<input type="text" name="name" id="" tabindex="1" required />
 					</td>	
 				</tr>
 
@@ -46,7 +46,7 @@
 					<b><label for="email">Email:</label></b>
 					</td>
 					<td>
-						<input type="text" name="email" id="" tabindex="2" />
+						<input type="email" name="email" id="" tabindex="2" required/>
 					</td>
 				</tr>
 				<tr>
@@ -148,8 +148,7 @@
 			
 			<a href = "lessons.php">| Lessons |</a>
 		
-			<a href = "#">| Testimonials |</a>
-			<a href = "#">| Contact Us |</a>
+			<a href = "contact.php">| Contact Us |</a>
 		</div>
 
 			

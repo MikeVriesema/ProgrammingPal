@@ -23,28 +23,19 @@
 			<a href = "form.php">Programmers</a>
 			<a href = "lessons.php">Lessons</a>
 			<a href = "studentForm.php">Students</a>
-			<a href = "#">Contact Us</a>
+			<a href = "contact.php">Contact Us</a>
 		</nav>	
 	
 		<div id = "content">
 		
 		<h2>My Lessons</h2>
 
-	<!--
-		======================================================================================================================
-		LESSON SEARCH BY USER FORM + PHP +SQL
-		TODO:a programmer ID (will find way of linking to the language ID through skills table)
-		TODO:user email(must be registered (will do checks dw)))
-		TODO:I'll suss out price because it can't be user specified (new table perhaps waheyy)
-	-->
 	<div id = "lessonFormSearch">
 		<?php
 			if( isset( $_POST['search'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
 				do{
 					$userEmail = $_POST['userEmail']; //SETS EMAIL INTO VARIABLE
-					// Step 1: Connect to DBMS
 					$conn = mysqli_connect("localhost", "root", "","ProgrammingPal") or die("Unable to connect to DBMS."); //ATTEMPTS DBMS CONNECTION OTHERWISE KILLS IT
-					// Step 2: Write and run SQL command
 					$sqlMailFetch = "SELECT userID FROM users WHERE email = '$userEmail'"; //PULLS USER ID FROM USERS USING INPUT EMAIL AS SQL QUERY
 							$resultMail = $conn->query($sqlMailFetch); //RUNS QUERY AND STORES SQL RESULT IN RESULTMAIL
 						while($row = $resultMail->fetch_assoc()){ //RUNS WHILE LOOP TO ITERATE THROUGH SQL RESULT
@@ -57,7 +48,6 @@
 						echo "<h4>No results found for email $userEmail.</h4>";
 						break;
 					}
-					// Step 3: Process resulting data
 					if($resultLessons->num_rows > 0){
 						echo '<div id = returnedFormDiv>';
 						echo '<table id="returnedForm">';
@@ -106,7 +96,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="userEmail" id="userEmail" tabindex="1" required />
+						<input type="email" name="userEmail" id="userEmail" tabindex="1" required />
 					</td>	
 				</tr>
 				<tr>
@@ -129,23 +119,48 @@
 	<div id = "content2">
 	
 	<h2>Book A Lesson</h2>
-
-	<!-- 
-	===========================================================================================================================
-	LESSON BOOKING FORM + PHP +SQL(NEEDS WORK BIG WIP)
-
-		IMPORTANT CODE
-	// Query for all the languages
-	$queryLangs = mysql_query("SELECT languageID FROM languages");
-	while($languages = mysql_fetch_array($queryLangs))
-	{
-	// Attach the language onto the $arraySkill array
-	// We can do this because we know the languageID from the language table
-	$arraySKill[$languages['personID']]['colours'][] = $colour;
-	}
-	-->
 	<div id = "lessonFormBook">
-	<form action ="lessons.php" method="POST" id="userLessonBook">
+		<?php
+			if( isset( $_POST['bookLesson'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
+				$checkMail = $_POST['userEmail'];
+				$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
+				$sqlMailCheck = "SELECT email FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK YEET
+						$resultEmail = $conn->query($sqlMailCheck); 
+				if($resultEmail->num_rows > 0){
+					$progName = $_POST['programmer'];
+					$langName = $_POST['language'];
+					$time = $_POST['time'];
+					$date = $_POST['date'];
+
+					$sql2 = "SELECT userID FROM users WHERE email = '$checkMail'";
+						$resultUser = $conn->query($sql2);
+						while($row = $resultUser->fetch_assoc()){
+							$userID = $row["userID"];
+						}
+					$sql3 = "SELECT programmerID FROM programmers WHERE name = '$progName'";
+						$resultProgram = $conn->query($sql3);
+						while($row = $resultProgram->fetch_assoc()){
+							$progID = $row["programmerID"];
+						}
+					$sql4 = "SELECT languageID FROM languages WHERE language = '$langName'";
+						$resultLang = $conn->query($sql4);
+						while($row = $resultLang->fetch_assoc()){
+							$langID = $row["languageID"];
+						}
+					$bookLesson = "INSERT INTO lessons(programmerID, languageID, userID, time, date, price) VALUES($progID, $langID, $userID, '$time', '$date', 15.00);";
+					if($conn->query($bookLesson)===TRUE){
+						echo "User registered!";
+					} else {
+						echo "Error: " . $bookLesson . "<br>" . $conn->error;
+					}
+				}else{
+					echo "No registered email found.";
+				}
+				$conn->close();	
+			}else{
+			
+		?>
+	<form method="POST" id="userLessonBook">
 		<table id ='bookForm'>
 			<tr>
 				<td> <!-- JQUERY EVENT LISTENER FOR BUTTON PRESS WILL SOMEHOW REVEAL PROGRAMMERS FOR SELECTED LANGUAGE,WILL FIGURE OUT -->
@@ -194,41 +209,17 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" name="userEmail" id="userEmail" tabindex="2" />
+					<input type="email" name="userEmail" id="userEmail" tabindex="2"  />
 				</td>	
 			</tr>
 			<tr>
 				<td>	
-					<br/>
-					<input type ="submit" name="checkMail" colspan ="2" id ="checkMail" value="Continue" tabindex ="3"/>
+					<b><label for="date">Enter date of lesson:</b></label>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<?php
-						if( isset( $_POST['checkMail'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
-							$checkMail = $_POST['userEmail'];
-							$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
-							$sqlMailCheck = "SELECT email FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK YEET
-									$resultEmail = $conn->query($sqlMailCheck); 
-							if($resultEmail->num_rows > 0){
-								echo "JEFF YUS";
-							}else{
-								echo "JEFF NAH";
-							}
-							$conn->close();	
-						}
-					?>
-				</td>
-			</tr>
-			<tr>
-				<td>	
-					<b><label for="date">Enter date of lesson:</b><i>YYYY-MM-DD</i></label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="text" name="date" id="date" tabindex="4" />
+					<input type="date" name="date" id="date" tabindex="4" />
 				</td>	
 			</tr>
 			<tr>
@@ -238,18 +229,21 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" name="time" id="time" tabindex="5" />
+					<input type="time" name="time" id="time" tabindex="5" />
 				</td>	
 			</tr>
 			<tr>
 				<td>
 					<br/>
 					<input type ="reset" id ="reset" tabindex ="6" />
-					<input type ="submit" name="book" colspan ="2" id ="search" tabindex ="7"/> 
+					<input type ="submit" name="bookLesson" colspan ="2" id ="bookLesson" tabindex ="7"/> 
 				</td>
 			</tr>
 		</table>
 	</form>
+	<?php	
+		}
+	?>
 	</div>
 		
 		</div>
@@ -269,8 +263,7 @@
 			
 			<a href = "lessons.php">| Lessons |</a>
 		
-			<a href = "#">| Testimonials |</a>
-			<a href = "#">| Contact Us |</a>
+			<a href = "contact.php">| Contact Us |</a>
 		</div>
 
 			

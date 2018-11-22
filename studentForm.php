@@ -63,7 +63,7 @@
 					<b><label for="email">Email:</label></b>
 					</td>
 					<td>
-						<input type="text" name="email" id="email" tabindex="2" required/>
+						<input type="email" name="email" id="email" tabindex="2" required/>
 					</td>
 				</tr>
 
