@@ -87,9 +87,21 @@
 	
 		<img src="images/james.jpg" title="James"  alt="James">
 
-		<p>Sed eget aliquet eros. Morbi condimentum scelerisque pharetra. Mauris id lectus a odio efficitur malesuada. Integer est ex, ultricies sit amet suscipit eget, pulvinar ut leo. Aliquam erat volutpat. Nullam pellentesque fringilla pellentesque. Etiam iaculis felis quis efficitur ultricies. Nunc ac tellus tellus. Cras ultricies nibh elit, convallis euismod turpis pellentesque ac. Donec non nunc dui. Aliquam erat volutpat. Morbi luctus tristique magna, quis bibendum eros ornare sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In id rutrum tortor, vestibulum placerat lectus.</p>
+		<p>Our service is directed towards everyone and anyone with any level of programming experience. If you are just starting trying to find your feet in your first programming language we're here to help. Even the programming wizards who are looking to advance knowledge in an area or work on a new project. We're here to suit everyone.We also plan on launching a new service soon where we plan on building platforms,services and applications that people can hire us to develop</p>
 
-				
+		<p>Sample projects that our team have worked on: <!-- CAN WE MAKE THIS LIST LEFT ALIGNED?ALSO PLEASE ELABORATE ON WHAT YOUR GUITAR JAVA DID AGAIN,WAS IT A TUNER?-->
+		<ul>
+				<li>A League Management System</li>
+				<li>Playlist and Track music environment</li>
+				<li>Community Centre Booking System</li>
+				<li>Local Sports Team Website</li>
+				<li>Polynomial Manipulation Application</li>
+				<li>A Guitar Chord Application</li>
+				<li>Monoalphabetic Cipher Encryption/Decryption Application</li>
+				<li>2D & 3D Shapes Application</li>
+				<li>And Many More...</li>
+		</ul>
+		</p>
 	</div>
 	
 
