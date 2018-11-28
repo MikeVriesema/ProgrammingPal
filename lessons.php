@@ -43,10 +43,10 @@
 							$userIDEntry = $row["userID"]; //SETS USER ID AS VARIABLE
 						}
 					if($resultMail->num_rows > 0){ //IF THE RESULT OF USER ID IS GREATER THAN 0 IT RUNS THE NEXT SQL QUERY
-						$sqlLessonFetch = "SELECT lessonID,programmerID,languageID,time,date,price FROM lessons WHERE userID = '$userIDEntry'";
-							$resultLessons = $conn->query($sqlLessonFetch);
+						$sqlLessonFetch = "SELECT lessonID,programmerID,languageID,time,date,price FROM lessons WHERE userID = '$userIDEntry'"; //SELECTS ALL BAR USERID FROM LESSONS
+							$resultLessons = $conn->query($sqlLessonFetch); //RUNS QUERY
 					}else{
-						echo "<h4>No results found for email $userEmail.</h4>";
+						echo "<h4>No results found for email $userEmail.</h4>"; 
 						break;
 					}
 					if($resultLessons->num_rows > 0){
@@ -54,7 +54,7 @@
 						echo '<table id="returnedForm">';
 						echo "<h3>Lesson Bookings: $userEmail</h3>";
 						echo "<tr><th>LessonID</th><th>Programmer</th><th>Language</th><th>UserEmail</th><th>Time</th><th>Date</th><th>Price</th></tr>";
-						while($row = $resultLessons->fetch_assoc())
+						while($row = $resultLessons->fetch_assoc()) //RETRIEVES ALL RELEVANT LESSON INFO
 						{
 							$lessonID = $row["lessonID"];
 							$programmerID = $row["programmerID"];
@@ -63,19 +63,19 @@
 							$date = $row["date"];
 							$price = $row["price"];
 							$total = $total+$price;
-							$sql3 = "SELECT name FROM programmers WHERE programmerID = '$programmerID'";
+							$sql3 = "SELECT name FROM programmers WHERE programmerID = '$programmerID'"; //FETCHES PROGRAMMER NAME FROM ID FOR EASE OF DISPLAY
 								$resultProgram = $conn->query($sql3);
 								while($row = $resultProgram->fetch_assoc()){
 									$programmerName = $row["name"];
 								}
-							$sql4 = "SELECT language FROM languages WHERE languageID = '$languageID'";
+							$sql4 = "SELECT language FROM languages WHERE languageID = '$languageID'"; //FETCHES LANGUAGE NAME FROM ID FOR EASE OF DISPLAY
 								$resultLang = $conn->query($sql4);
 								while($row = $resultLang->fetch_assoc()){
 									$languageName = $row["language"];
 								}
 							echo "<tr><td>$lessonID</td><td>$programmerName</td><td>$languageName</td><td>$userEmail</td><td>$time</td><td>$date</td><td>€$price</td></tr>";
 						}
-						echo "<tr><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td> <b>Total Cost: €$total</b></td></tr>"; //HELP
+						echo "<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> <b>Total Cost: €$total</b></td></tr>"; 
 						echo "</table>"; 
 					} else 
 					{
@@ -123,11 +123,11 @@
 	<h2>Book A Lesson</h2>
 	<div id = "lessonFormBook">
 		<?php
-			if( isset( $_POST['checkLang'] ) ){
+			if( isset( $_POST['checkLang'] ) ){ 
 				$selectedLang = $_POST['language']; 
 				echo "$selectedLang";
 			}
-			if( isset( $_POST['bookLesson'] ) ){ //CHECKS TO SEE IF DATA IS ENTERED
+			if( isset( $_POST['bookLesson'] ) ){ 
 				$checkMail = $_POST['userEmail'];
 				$conn = mysqli_connect("localhost", "root", "", "ProgrammingPal") or die("Unable to connect to DBMS."); 
 				$sqlMailCheck = "SELECT userID FROM users WHERE email = '$checkMail'"; //REGISTERED EMAIL CHECK AND RETURNS USERID
@@ -167,7 +167,7 @@
 	<form action ="lessons.php" method="POST" id="userLessonBook">
 		<table id ='bookForm'>
 			<tr>
-				<td> <!-- JQUERY EVENT LISTENER FOR BUTTON PRESS WILL SOMEHOW REVEAL PROGRAMMERS FOR SELECTED LANGUAGE,WILL FIGURE OUT -->
+				<td> 
 					<b>Select a Language:</b>
 					<br/>
 						<?php
