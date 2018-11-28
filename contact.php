@@ -43,7 +43,8 @@
             <br>
             <b><a href = "https://github.com/LukeOSG">Luke's GitHub</a></b></p>
 
-           
+			
+	
 
         </div>
 
@@ -60,7 +61,19 @@
 
         
         </div>
+		<div class = "clear"></div>
 			
+		<div id = "content3" class = "contentClass">	
+			<p>Sample projects that our team have worked on:<b><br/>-A League Management System-</b>
+			<b><br/>-Playlist and Track music environment-</b>
+			<b><br/>-Community Centre Booking System-</b>
+			<b><br/>-Local Sports Team Website-</b>
+			<b><br/>-Polynomial Manipulation Application-</b>
+			<b><br/>-A Guitar Chord Shape/Sound Searcher-</b>
+			<b><br/>-Monoalphabetic Cipher Encryption/Decryption Application-</b>
+			<b><br/>-2D & 3D Shapes Application-</b>
+			<b><br/>-And Many More...-</b></p>
+		</div>
 		
 		
 			<div class = "clear"></div>

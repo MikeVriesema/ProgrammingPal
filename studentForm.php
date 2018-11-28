@@ -26,7 +26,7 @@
 			<a href = "contact.php">Contact Us</a>
 		</nav>	
 
-		<div id = "content">
+		<div id = "content" class = "contentClass">
 		
 			<h2>Student Registration</h2>
 
@@ -78,6 +78,9 @@
 			<?php
 				}
 			?>
+
+			<p>Our service is directed towards everyone and anyone with any level of programming experience. If you are just starting trying to find your feet in your first programming language we're here to help.<br/> Even the programming wizards who are looking to advance knowledge in an area or work on a new project. We're here to suit everyone. We also plan on launching a new service soon where we plan on building platforms, services and applications that people can hire us to develop.</p>
+		
 	</div>
 
 	
@@ -85,23 +88,11 @@
 		
 		<h2>Testimonials</h2>
 	
-		<img src="images/james.jpg" title="James"  alt="James">
+		<img src="images/hd.jpeg" title="Henry"  alt="Henry">
 
-		<p>Our service is directed towards everyone and anyone with any level of programming experience. If you are just starting trying to find your feet in your first programming language we're here to help.<br/> Even the programming wizards who are looking to advance knowledge in an area or work on a new project. We're here to suit everyone. We also plan on launching a new service soon where we plan on building platforms, services and applications that people can hire us to develop.</p>
+		<p>"Since I was introduced to Programming Pal I can now spend more time in the gym pumping my guns. Just look how big my arms are!"</p>
 
-		<p>Sample projects that our team have worked on: 
-				
-					<b><br/>-A League Management System-</b>
-					<b><br/>-Playlist and Track music environment-</b>
-					<b><br/>-Community Centre Booking System-</b>
-					<b><br/>-Local Sports Team Website-</b>
-					<b><br/>-Polynomial Manipulation Application-</b>
-					<b><br/>-A Guitar Chord Shape/Sound Searcher-</b>
-					<b><br/>-Monoalphabetic Cipher Encryption/Decryption Application-</b>
-					<b><br/>-2D & 3D Shapes Application-</b>
-					<b><br/>-And Many More...-</b>
-			
-		</p>
+
 	</div>
 	
 
