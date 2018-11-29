@@ -26,7 +26,7 @@ CREATE TABLE `languages` (
   `languageID` int(11) NOT NULL AUTO_INCREMENT,
   `language` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`languageID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `languages` (
 
 LOCK TABLES `languages` WRITE;
 /*!40000 ALTER TABLE `languages` DISABLE KEYS */;
-INSERT INTO `languages` VALUES (1,'Java'),(2,'C'),(3,'HTML'),(4,'SQL'),(5,'Bash'),(6,'Python');
+INSERT INTO `languages` VALUES (1,'Java'),(2,'C'),(3,'HTML & CSS'),(4,'SQL'),(5,'PHP'),(6,'Bash'),(7,'Python');
 /*!40000 ALTER TABLE `languages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,8 @@ CREATE TABLE `lessons` (
   `programmerID` int(11) NOT NULL,
   `languageID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `date` datetime NOT NULL,
+  `time` time NOT NULL,
+  `date` date NOT NULL,
   `price` double NOT NULL,
   PRIMARY KEY (`lessonID`),
   KEY `programmerID` (`programmerID`),
@@ -60,7 +61,7 @@ CREATE TABLE `lessons` (
   CONSTRAINT `lessons_ibfk_1` FOREIGN KEY (`programmerID`) REFERENCES `programmers` (`programmerID`),
   CONSTRAINT `lessons_ibfk_2` FOREIGN KEY (`languageID`) REFERENCES `languages` (`languageID`),
   CONSTRAINT `lessons_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +70,7 @@ CREATE TABLE `lessons` (
 
 LOCK TABLES `lessons` WRITE;
 /*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
-INSERT INTO `lessons` VALUES (1,1,1,3,'0000-00-00 00:00:00',10),(2,2,4,4,'0000-00-00 00:00:00',10),(3,2,5,3,'0000-00-00 00:00:00',10);
+INSERT INTO `lessons` VALUES (1,1,1,2,'14:00:00','2018-12-04',15),(2,2,4,3,'14:00:00','2018-12-05',15),(3,2,5,2,'15:00:00','2018-12-04',15),(4,4,7,1,'14:00:00','2018-12-04',15);
 /*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +86,7 @@ CREATE TABLE `programmers` (
   `name` varchar(20) NOT NULL,
   `email` varchar(25) NOT NULL,
   PRIMARY KEY (`programmerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +95,7 @@ CREATE TABLE `programmers` (
 
 LOCK TABLES `programmers` WRITE;
 /*!40000 ALTER TABLE `programmers` DISABLE KEYS */;
-INSERT INTO `programmers` VALUES (1,'Luke','luke@luke.com'),(2,'Mitch','mitch@mitch.com'),(3,'Ryan','ryan@shmem.com'),(4,'Gearoid','ceo@programmingpal.com');
+INSERT INTO `programmers` VALUES (1,'Luke','luke@programmingpal.com'),(2,'Mitch','mitch@programmingpal.com'),(3,'Ryan','ryan@shmem.com'),(4,'Conall','conall@LIT.ie'),(5,'James','james@programmingpal.com');
 /*!40000 ALTER TABLE `programmers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +121,7 @@ CREATE TABLE `skills` (
 
 LOCK TABLES `skills` WRITE;
 /*!40000 ALTER TABLE `skills` DISABLE KEYS */;
-INSERT INTO `skills` VALUES (1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(3,2),(3,3),(4,5);
+INSERT INTO `skills` VALUES (1,1),(1,2),(1,3),(2,1),(2,4),(2,5),(3,3),(3,6),(4,3),(4,6),(4,7),(5,2),(5,7);
 /*!40000 ALTER TABLE `skills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +146,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Jeff12','jeff@jeff.com'),(2,'DurujiH','durujih@yahoo.com'),(3,'Alice456','alice@wonderland.com'),(4,'Bob Browne','Bobcrypto@PKI.com');
+INSERT INTO `users` VALUES (1,'DonalOC','donal@northcorkmuaythai.c'),(2,'DurujiH','durujih@yahoo.com'),(3,'Alice456','alice@wonderland.com'),(4,'Bob Browne','Bobcrypto@PKI.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -158,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-16  1:40:02
+-- Dump completed on 2018-11-29  0:25:56
