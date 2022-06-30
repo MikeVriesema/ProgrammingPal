@@ -28,7 +28,7 @@
 
 		<div id = "content" class = "contentClass">
 		
-			<h2>Student Registration</h2>
+		<h2>Student Registration</h2>
 
 			
 
